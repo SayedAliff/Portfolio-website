@@ -1,73 +1,118 @@
-# Devfolio
+Portfolio-website
 
-Devfolio is a portfolio website built using Next.js, Tailwind CSS, and Framer Motion. It allows developers to showcase their projects, skills, and blogs in a visually appealing manner.
+A Clean, Modern, and Animated Portfolio Showcase
 
-## Table of Contents
+Welcome to my personal developer portfolio! Built with modern web technologies, this site is designed to showcase my projects, technical skills, and professional journey in a clean, high-performance, and visually appealing manner.
 
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Animations](#animations)
-- [Components](#components)
-- [Types](#types)
-- [Contributing](#contributing)
-- [License](#license)
+🚀 Key Features
 
-## Features
+Next.js & TypeScript: High-performance, statically generated pages for speed and stability.
 
-- Responsive design using Tailwind CSS
-- Smooth animations with Framer Motion
-- Dark mode support
-- Modular and reusable components
-- Easy to customize
+Tailwind CSS: Fully responsive and mobile-first design system.
 
-## Installation
+Framer Motion: Smooth, professional UI animations and transitions.
 
-To get started with Devfolio, follow these steps:
+Dark Mode Ready: Seamless theme switching for better user experience.
 
-1. **Clone the repository:**
+Modular Architecture: Easy data customization via dedicated TypeScript data files.
 
-   ```bash
-   git clone https://github.com/yourusername/devfolio.git
-   cd devfolio
-   ```
+🛠️ Technology Stack
 
-2. **Install the dependencies:**
+Category
 
-   Make sure you have [Node.js](https://nodejs.org/) installed. Then, run the following command to install the necessary packages:
+Technology
 
-   ```bash
-   npm install
-   ```
+Framework
 
-3. **Run the development server:**
+Next.js (App Router)
 
-   Start the development server to view the project locally:
+Language
 
-   ```bash
-   npm run dev
-   ```
+TypeScript
 
-   Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+Styling
 
-4. **Build for production:**
+Tailwind CSS
 
-   To create an optimized production build, run:
+Animation
 
-   ```bash
-   npm run build
-   ```
+Framer Motion
 
-5. **Start the production server:**
+Data
 
-   After building the project, you can start the production server with:
+Local TS/JS files
 
-   ```bash
-   npm start
-   ```
+💻 Installation and Setup
 
-## Usage
-The Devfolio project is structured to be intuitive and easy to navigate.
+Follow these steps to get a local copy up and running on your development machine.
 
-By understanding the structure and components of Devfolio, you can easily customize and extend the project to fit your needs.
+Prerequisites
 
+You must have Node.js (LTS version recommended) and npm installed.
+
+Steps
+
+Clone the Repository
+
+git clone [https://github.com/SayedAliff/Portfolio-website.git](https://github.com/SayedAliff/Portfolio-website.git)
+cd Portfolio-website
+
+
+Install Dependencies
+
+npm install
+
+
+Run Development Server
+
+npm run dev
+
+
+Open http://localhost:3000 in your browser to view the project.
+
+✏️ Customization Guide
+
+All personal data and content are separated from the UI components for easy editing.
+
+Content
+
+File Path
+
+What to Edit
+
+Bio & Links
+
+src/components/Hero.tsx
+
+Name, Title, Social Media URLs.
+
+Projects List
+
+src/contents/projects.ts
+
+Add/Modify project titles, descriptions, and technology stacks.
+
+About Page
+
+src/app/about/page.tsx
+
+Your detailed Bio, Experience, Education, and core Skills list.
+
+Blogs/Articles
+
+src/contents/blogs.ts
+
+Add/Modify blog post metadata.
+
+🔒 License and Usage Policy
+
+This project is proprietary and all rights are reserved by the copyright holder.
+
+Copyright (c) 2025 Sayed Nafisur Rahman Alif. All rights reserved.
+
+This project, including its code structure, assets, design, and written content, is proprietary and protected by copyright law. No part of this project may be copied, reproduced, modified, published, or distributed in any form or by any means, without prior written permission from the copyright owner (Sayed Nafisur Rahman Alif).
+
+Unauthorized copying or reuse of any part of this project is strictly prohibited.
+
+
+Connect with me on LinkedIn.
