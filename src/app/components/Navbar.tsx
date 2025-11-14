@@ -23,8 +23,16 @@ export default function Navbar() {
 
   return (
     <nav className="fixed w-full bg-white/80 dark:bg-dark/80 backdrop-blur-sm z-50">
-      <div className="container max-w-7xl mx-auto px-4">
+      
+      {/* CRITICAL FIX: 
+        1. 'container' class is REMOVED (it adds default centering/margins).
+        2. 'mx-auto' class is REMOVED (it centers the content horizontally).
+        3. 'px-8' is set to provide sufficient space from the screen edges.
+      */}
+      <div className="max-w-7xl px-8"> 
         <div className="flex items-center justify-between h-16">
+          
+          {/* This Link (ALIF) is now pushed fully to the left */}
           <Link href="/" className="text-xl font-bold text-primary">
           ALIF
           </Link>
@@ -128,4 +136,4 @@ export default function Navbar() {
       </div>
     </nav>
   )
-} 
+}

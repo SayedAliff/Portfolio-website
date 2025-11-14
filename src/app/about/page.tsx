@@ -27,7 +27,11 @@ export default function About() {
         {...fadeInUp}
       >
         <p className="text-lg text-secondary max-w-3xl mx-auto text-center">
-          I&apos;m  💻 Passionate about Backend Development, C#, Data Science, Python, PHP, and Web Development. 🚀 Always exploring new technologies and expanding my knowledge
+          I'm a highly focused Backend Developer with a deep passion for building robust and scalable applications. My expertise is primarily anchored in backend systems, encompassing languages like C# and Python, with a strong command over traditional web development environments like PHP. I am also deeply interested in Data Science, often leveraging Python for effective data processing and analysis.
+
+My approach is centered on transforming concepts into reliable, production-ready systems that prioritize performance, security, and maintainability. I value leveraging my diverse skill set in Backend Development and Web Development to deliver end-to-end solutions.
+
+I'm always exploring new technologies and expanding my knowledge, driven by the continuous challenge of building better systems and collaboration within the tech community.
         </p>
       </motion.section>
 
