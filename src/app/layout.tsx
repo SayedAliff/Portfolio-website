@@ -16,10 +16,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Update site metadata (Browser Tab Title and SEO Description)
+// Update site metadata (Browser Tab Title, SEO Description, and Favicon)
 export const metadata: Metadata = {
-  title: "Sayed Nafisur Rahman Alif",
+  title: "Sayed Nafisur Rahman Alif", 
   description: "Sayed Nafisur Rahman Alif's personal portfolio, showcasing projects built with Next.js, TypeScript, and modern web technologies.",
+  // Manual link for favicon (required since auto-detection is failing)
+  icons: {
+    icon: '/Users/alif/Portfolio-website/public/profile.avif', 
+  },
 };
 
 export default function RootLayout({
