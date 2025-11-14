@@ -1,3 +1,5 @@
+// src/app/layout.tsx
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -5,7 +7,9 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// Configure Geist fonts for the application
+// 1. IMPORT the SpeedInsights component
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -16,11 +20,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Update site metadata (Browser Tab Title, SEO Description, and Favicon)
 export const metadata: Metadata = {
-  title: "Sayed Nafisur Rahman Alif", 
-  description: "Sayed Nafisur Rahman Alif's personal portfolio, showcasing projects built with Next.js, TypeScript, and modern web technologies.",
-
+  // Assuming the metadata object is configured here
+  title: "Devfolio | Portfolio Website",
+  description: "A developer portfolio built with Next.js.",
 };
 
 export default function RootLayout({
@@ -30,17 +33,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    {/* Apply body styles, dark mode transition, and font variables */}
-    <body className={`bg-white transition-colors dark:bg-gray-900 dark:text-white ${geistSans.variable} ${geistMono.variable}`}>
-        {/* Wrap the application with the Theme Context Provider */}
+      <body className={`bg-white transition-colors dark:bg-gray-900 dark:text-white ${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProvider>
           <Navbar />
-          {/* Main content area, with padding to offset the fixed Navbar */}
           <main className="min-h-screen pt-24">
             {children}
           </main>
           <Footer />
         </ThemeProvider>
+        {/* 2. RENDER the SpeedInsights component, outside of the main layout provider, but within the body */}
+        <SpeedInsights />
       </body>
     </html>
   );
