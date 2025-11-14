@@ -100,7 +100,7 @@ export default function About() {
         </motion.div>
       </motion.section>
 
-      {/* Experience Section */}
+      {/* Experience Section.4xl */}
       <motion.section 
         className="mb-16"
         {...fadeIn}
