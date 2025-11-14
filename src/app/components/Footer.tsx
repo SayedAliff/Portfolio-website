@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { FaGithub, FaFacebook, FaLinkedin } from 'react-icons/fa'
 
 export default function Footer() {

@@ -27,11 +27,11 @@ export default function About() {
         {...fadeInUp}
       >
         <p className="text-lg text-secondary max-w-3xl mx-auto text-center">
-          I'm a highly focused Backend Developer with a deep passion for building robust and scalable applications. My expertise is primarily anchored in backend systems, encompassing languages like C# and Python, with a strong command over traditional web development environments like PHP. I am also deeply interested in Data Science, often leveraging Python for effective data processing and analysis.
-
-My approach is centered on transforming concepts into reliable, production-ready systems that prioritize performance, security, and maintainability. I value leveraging my diverse skill set in Backend Development and Web Development to deliver end-to-end solutions.
-
-I'm always exploring new technologies and expanding my knowledge, driven by the continuous challenge of building better systems and collaboration within the tech community.
+          I&apos;m a highly focused Backend Developer with a deep passion for building robust and scalable applications. My expertise is primarily anchored in backend systems, encompassing languages like C# and Python, with a strong command over traditional web development environments like PHP. I am also deeply interested in Data Science, often leveraging Python for effective data processing and analysis.
+          <br /><br />
+          My approach is centered on transforming concepts into reliable, production-ready systems that prioritize performance, security, and maintainability. I value leveraging my diverse skill set in Backend Development and Web Development to deliver end-to-end solutions.
+          <br /><br />
+          I&apos;m always exploring new technologies and expanding my knowledge, driven by the continuous challenge of building better systems and collaboration within the tech community.
         </p>
       </motion.section>
 
@@ -123,7 +123,6 @@ I'm always exploring new technologies and expanding my knowledge, driven by the 
             variants={fadeInUp}
             {...cardHoverSmall}
           >
-            
           </motion.div>
           
           <motion.div 
@@ -131,7 +130,6 @@ I'm always exploring new technologies and expanding my knowledge, driven by the 
             variants={fadeInUp}
             {...cardHoverSmall}
           >
-           
           </motion.div>
         </motion.div>
       </motion.section>
@@ -164,11 +162,11 @@ I'm always exploring new technologies and expanding my knowledge, driven by the 
               B.Sc. in Computer Science and Engineering Major in Information Systems
             </p>
             <p className="text-secondary">
-             Major in Information Systems
+              Major in Information Systems
             </p>
           </motion.div>
         </motion.div>
       </motion.section>
     </div>
   )
-} 
+}
