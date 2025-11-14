@@ -41,7 +41,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </ThemeProvider>
-        {/* 2. RENDER the SpeedInsights component, outside of the main layout provider, but within the body */}
+        
         <SpeedInsights />
       </body>
     </html>
