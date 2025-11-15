@@ -1,10 +1,11 @@
 
 
-'use client';
-import Link from 'next/link';
+ 'use client';
+
+ import Link from 'next/link';
 import { motion } from 'framer-motion';
-// Assuming these imports are correctly defined in your animations file
-import { fadeInUp, fadeIn, staggerContainer } from '@/utils/animations'; 
+// FIX: Removed 'fadeIn' to resolve the final ESLint error
+import { fadeInUp, staggerContainer } from '@/utils/animations'; 
 import { FaCalendar, FaTag } from 'react-icons/fa';
 
 // Dummy Data Structure (Add actual data fetching/structure if needed)
@@ -51,7 +52,7 @@ export default function Blogs() {
             key={index}
             className="bg-white dark:bg-dark/50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-shadow"
             variants={fadeInUp} 
-            whileHover={{ scale: 1.03 }} // 👈 FIX: Direct 'whileHover' applied to eliminate conflict
+            whileHover={{ scale: 1.03 }}
           >
             <div className="p-6">
               <Link href={`/blogs/${blog.slug}`} className="text-xl font-semibold hover:text-primary transition-colors">
