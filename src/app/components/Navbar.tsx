@@ -1,4 +1,4 @@
-// src/app/components/Navbar.tsx (Updated for Single-Page Navigation)
+
 
 'use client'
 import Link from 'next/link'
@@ -15,29 +15,24 @@ export default function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // 🛠️ FIX: Changed links to hash tags (#) for Single-Page Smooth Scrolling Navigation
+  // Menu items using hash links (#) for smooth scrolling
   const menuItems = [
-    { href: '/', label: 'Home' }, // Home stays '/' to go to the top
+    { href: '/', label: 'Home' },
     { href: '#about', label: 'About' },
-    { href: '#experience', label: 'Experience' }, // Target the #experience ID
+    // Experience link is temporarily removed from Navbar
+    // { href: '#experience', label: 'Experience' }, 
     { href: '#skills', label: 'Skills' }, 
     { href: '#projects', label: 'Projects' },
     { href: '#blogs', label: 'Blogs' },
-    { href: '#contact', label: 'Contact' }, // Target the #contact ID
+    { href: '#contact', label: 'Contact' }, 
   ];
 
   return (
     <nav className="fixed w-full bg-white/80 dark:bg-dark/80 backdrop-blur-sm z-50">
       
-      {/* CRITICAL FIX: 
-        1. 'container' class is REMOVED (it adds default centering/margins).
-        2. 'mx-auto' class is REMOVED (it centers the content horizontally).
-        3. 'px-8' is set to provide sufficient space from the screen edges.
-      */}
       <div className="max-w-7xl px-8"> 
         <div className="flex items-center justify-between h-16">
           
-          {/* This Link (ALIF) is now pushed fully to the left */}
           <Link href="/" className="text-xl font-bold text-primary">
           ALIF
           </Link>
@@ -47,7 +42,6 @@ export default function Navbar() {
             {menuItems.map((item) => (
               <Link 
                 key={item.href}
-                // href now points to the section IDs (#about, #contact, etc.)
                 href={item.href} 
                 className="hover:text-primary transition-colors"
               >
