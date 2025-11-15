@@ -1,16 +1,15 @@
-// src/app/components/Skills.tsx (Final Unused Imports Fix)
+
 
 'use client'
 import { motion } from 'framer-motion'
 import React from 'react'; 
-// FIX: Removed the 3 unused icons (SiGithubactions, SiScikitlearn, SiLangchain)
+// FIX: Changed SiCsharp to SiDotnet (The user's preferred icon for the .NET stack)
 import { 
     SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
-    SiNodedotjs, SiExpress, SiGit, SiDocker, SiNginx, SiReact, 
+    SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
     SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
-    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, 
-    SiPhp, SiSqlite, SiArduino, SiFastapi, // All remaining used icons
-    SiDotnet
+    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain, SiPhp, 
+    SiSqlite, SiArduino, SiDotnet, SiFastapi // 👈 SiDotnet is now imported
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
@@ -39,7 +38,7 @@ export default function Skills() {
         Skills & Frameworks
       </motion.h2>
       <motion.div 
-      
+
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         variants={staggerContainer}
         initial="initial"
@@ -73,7 +72,7 @@ export default function Skills() {
           <FaLaptopCode className="h-8 w-8 text-green-500 mb-4" />
           <h3 className="text-xl font-semibold mb-2">Backend & Frameworks</h3>
           <ul className="text-secondary space-y-2">
-            <SkillItem Icon={SiDotnet} name="C# / .NET" /> 
+            <SkillItem Icon={SiDotnet} name="C# / .NET" /> {/* 👈 FIX: Changed to SiDotnet */}
             <SkillItem Icon={SiFastapi} name="Python | FastAPI" />
             <SkillItem Icon={SiNodedotjs} name="Node.js" />
             <SkillItem Icon={SiExpress} name="Express.js" />
@@ -147,6 +146,7 @@ export default function Skills() {
           <ul className="text-secondary space-y-2">
             <SkillItem Icon={SiNumpy} name="Numpy" />
             <SkillItem Icon={SiPandas} name="Pandas" />
+
             <li className="list-disc list-inside text-secondary ml-4">Matplotlib / Scikit-learn / Langchain</li>
             <SkillItem Icon={SiOpencv} name="OpenCV" />
             <SkillItem Icon={SiArduino} name="Arduino / Raspberry Pi (Embedded)" />
