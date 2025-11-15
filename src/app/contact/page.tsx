@@ -1,218 +1,82 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
-import { motion } from 'framer-motion'
-import { fadeInUp, fadeIn, slideInLeft, slideInRight } from '@/utils/animations'
+import { useState } from "react";
+import emailjs from "emailjs-com";
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
+export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
-type FormStatus = 'idle' | 'loading' | 'success' | 'error';
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess("");
+    setError("");
 
-export default function Contact() {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [status, setStatus] = useState<FormStatus>('idle')
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('loading')
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        e.target,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+      .then(
+        () => {
+          setSuccess("Message sent successfully!");
+          setLoading(false);
+          e.target.reset();
         },
-        body: JSON.stringify(formData),
-      })
-
-      if (!response.ok) throw new Error('Failed to send message')
-      
-      setStatus('success')
-      setFormData({ name: '', email: '', message: '' })
-    } catch {
-      setStatus('error')
-    }
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
+        (error) => {
+          setError("Failed to send message. Try again.");
+          setLoading(false);
+        }
+      );
+  };
 
   return (
-    <div className="container max-w-7xl mx-auto py-12">
-      <motion.h1 
-        className="text-4xl font-bold mb-8 text-center"
-        {...fadeInUp}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+      <form
+        onSubmit={sendEmail}
+        className="bg-white shadow-lg p-8 rounded-md w-full max-w-xl space-y-4"
       >
-        Contact Me
-      </motion.h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Contact Information */}
-        <motion.div 
-          className="space-y-8"
-          {...slideInLeft}
+        <h2 className="text-3xl font-bold text-center mb-4">Contact Me</h2>
+
+        {success && <p className="text-green-600 text-center">{success}</p>}
+        {error && <p className="text-red-600 text-center">{error}</p>}
+
+        <input
+          type="text"
+          name="from_name"
+          placeholder="Your Name"
+          required
+          className="w-full border p-2 rounded"
+        />
+
+        <input
+          type="email"
+          name="from_email"
+          placeholder="Your Email"
+          required
+          className="w-full border p-2 rounded"
+        />
+
+        <textarea
+          name="message"
+          rows={5}
+          placeholder="Your Message"
+          required
+          className="w-full border p-2 rounded"
+        ></textarea>
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
         >
-          <motion.div {...fadeInUp}>
-            <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
-            <p className="text-secondary">
-              I&apos;m always open to discussing new projects, creative ideas, or
-              opportunities to be part of your visions.
-            </p>
-          </motion.div>
-          
-          <motion.div 
-            className="space-y-4"
-            variants={fadeIn}
-            initial="initial"
-            animate="animate"
-          >
-            <motion.div 
-              className="flex items-center gap-4"
-              variants={fadeInUp}
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <FaEnvelope className="h-6 w-6 text-primary" />
-              <div>
-                <h3 className="font-semibold">Email</h3>
-                <a href="mailto:your.email@example.com" className="text-secondary hover:text-primary">
-                  20-43489-1@student.aiub.edu
-                </a>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="flex items-center gap-4"
-              variants={fadeInUp}
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <FaPhone className="h-6 w-6 text-primary" />
-              <div>
-                <h3 className="font-semibold">Phone</h3>
-                <a href="tel:+1234567890" className="text-secondary hover:text-primary">
-                  +8801784472253
-                </a>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="flex items-center gap-4"
-              variants={fadeInUp}
-              whileHover={{ x: 10 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <FaMapMarkerAlt className="h-6 w-6 text-primary" />
-              <div>
-                <h3 className="font-semibold">Location</h3>
-                <p className="text-secondary">GP-k 22/3 South Kuril, Dhaka-1229, Bangladesh</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
-        
-        {/* Contact Form */}
-        <motion.div 
-          className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
-          {...slideInRight}
-        >
-          <motion.form 
-            onSubmit={handleSubmit} 
-            className="space-y-6"
-            variants={fadeIn}
-            initial="initial"
-            animate="animate"
-          >
-            <motion.div variants={fadeInUp}>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent"
-              />
-            </motion.div>
-            
-            <motion.div variants={fadeInUp}>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent"
-              />
-            </motion.div>
-            
-            <motion.div variants={fadeInUp}>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={4}
-                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent"
-              />
-            </motion.div>
-            
-            <motion.button
-              type="submit"
-              disabled={status === 'loading'}
-              className="w-full btn btn-primary"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {status === 'loading' ? 'Sending...' : 'Send Message'}
-            </motion.button>
-            
-            {status === 'success' && (
-              <motion.p 
-                className="text-green-500 text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                Message sent successfully!
-              </motion.p>
-            )}
-            
-            {status === 'error' && (
-              <motion.p 
-                className="text-red-500 text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                Failed to send message. Please try again.
-              </motion.p>
-            )}
-          </motion.form>
-        </motion.div>
-      </div>
+          {loading ? "Sending..." : "Send Message"}
+        </button>
+      </form>
     </div>
-  )
-} 
+  );
+}
