@@ -1,15 +1,16 @@
 
 
 // Import components from their respective folders/files:
+// FIX 1: Changed import name from BlogsPage to Blogs to resolve ESLint error
 import AboutPage from './about/page';
-import BlogsPage from './blogs/page';
+import Blogs from './blogs/page'; 
 import ContactPage from './contact/page';
 
 // Import components from src/app/components
 import Hero from './components/Hero'; 
 import Projects from './components/Projects';
 import Skills from './components/Skills'; 
-import Experience from './components/Experience'; // Imported but commented out in JSX
+import Experience from './components/Experience'; 
 import Education from './components/Education'; 
 
 
@@ -63,7 +64,7 @@ export default function Home() {
       
       {/* 7. Blogs Section - ID target: #blogs */}
       <section id="blogs">
-          <BlogsPage />
+          <Blogs /> {/* FIX 2: Used the new import name */}
       </section>
 
       {/* 8. Contact Section - ID target: #contact */}
