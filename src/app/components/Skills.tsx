@@ -6,9 +6,9 @@ import React from 'react';
 // FIX: Changed SiCsharp to SiDotnet (The user's preferred icon for the .NET stack)
 import { 
     SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
-    SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
+    SiNodedotjs, SiExpress, SiGit,  SiDocker, SiNginx, SiReact, 
     SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
-    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain, SiPhp, 
+    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv,  SiPhp, 
     SiSqlite, SiArduino, SiDotnet, SiFastapi // 👈 SiDotnet is now imported
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
