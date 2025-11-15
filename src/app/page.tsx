@@ -1,9 +1,8 @@
 
 
 // Import components from their respective folders/files:
-// FIX 1: Changed import name from BlogsPage to Blogs to resolve ESLint error
 import AboutPage from './about/page';
-import Blogs from './blogs/page'; 
+import Blogs from './blogs/page'; // FIX 1: Changed import name to 'Blogs'
 import ContactPage from './contact/page';
 
 // Import components from src/app/components
@@ -38,7 +37,7 @@ export default function Home() {
       </section>
 
       {/* 4. Experience Section - ID target: #experience 
-          THE COMPONENT IS COMMENTED OUT (Hidden from the website)
+          THIS SECTION IS COMMENTED OUT (Hidden from the website)
       */}
       {/*
       <section 
@@ -64,7 +63,7 @@ export default function Home() {
       
       {/* 7. Blogs Section - ID target: #blogs */}
       <section id="blogs">
-          <Blogs /> {/* FIX 2: Used the new import name */}
+          <Blogs /> {/* FIX 2: Used the new import name 'Blogs' */}
       </section>
 
       {/* 8. Contact Section - ID target: #contact */}

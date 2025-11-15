@@ -2,7 +2,7 @@
 
 'use client'
 import { motion } from 'framer-motion'
-// FIX: Added directive to temporarily ignore the 'defined but never used' error for animation props
+// FIX: Added directive to temporarily ignore the 'defined but never used' error
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { fadeInUp, fadeIn, staggerContainer, cardHoverSmall } from '@/utils/animations'
 
@@ -31,8 +31,13 @@ export default function Experience() {
           variants={fadeInUp}
           {...cardHoverSmall}
         >
-          
-          
+          <h3 className="text-xl font-semibold mb-1">Software Developer Intern</h3>
+          <p className="text-primary mb-2">Tech Solutions Co. • 2024 - Present</p>
+          <ul className="list-disc list-inside text-secondary space-y-1 ml-4">
+            <li>Developed and maintained REST APIs using Python/Django for high-traffic applications.</li>
+            <li>Collaborated with frontend teams to integrate new features seamlessly.</li>
+            <li>Participated in code reviews and deployed microservices using Docker.</li>
+          </ul>
         </motion.div>
         
         {/* Job Role 2 */}
@@ -41,7 +46,13 @@ export default function Experience() {
           variants={fadeInUp}
           {...cardHoverSmall}
         >
-          
+          <h3 className="text-xl font-semibold mb-1">Junior Backend Developer</h3>
+          <p className="text-primary mb-2">Startup X • 2023 - 2024</p>
+          <ul className="list-disc list-inside text-secondary space-y-1 ml-4">
+            <li>Assisted in migrating legacy PHP codebases to modern C#/.NET architecture.</li>
+            <li>Managed and optimized PostgreSQL and MongoDB databases for performance.</li>
+            <li>Contributed to project documentation and continuous integration pipelines.</li>
+          </ul>
         </motion.div>
       </motion.div>
     </motion.section>
