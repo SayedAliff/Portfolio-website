@@ -1,7 +1,7 @@
-// src/app/components/Footer.tsx
 
-// Social icons-এর জন্য FaIcon বা যা প্রয়োজন, তা ইমপোর্ট করুন (Placeholder)
-import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+
+
+import { FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -15,8 +15,8 @@ const Footer = () => {
         {/* Social Icons */}
         <div className="flex justify-center space-x-6 mb-4"> 
             
-            <a href="mailto:your.email@example.com" target="_blank" rel="noopener noreferrer" className="dark:text-white hover:text-blue-500">
-                <FaEnvelope className="h-6 w-6" />
+            <a href="https://www.facebook.com/sayed.alif017" target="_blank" rel="noopener noreferrer" className="dark:text-white hover:text-blue-500">
+                <FaFacebook className="h-6 w-6" />
             </a>
             <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="dark:text-white hover:text-blue-500">
                 <FaLinkedin className="h-6 w-6" />
