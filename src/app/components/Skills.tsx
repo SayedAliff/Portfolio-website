@@ -10,7 +10,10 @@ import {
     SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, SiDjango, SiNumpy, SiR,
     SiCashapp,
     SiPhp,
-    SiPandas
+    SiPandas,
+    SiSqlite,
+    SiArduino,
+    SiOpencv
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
@@ -100,7 +103,7 @@ export default function Skills() {
             <SkillItem Icon={SiMysql} name="MySQL" />
             <SkillItem Icon={SiOracle} name="Oracle SQL" />
             <SkillItem Icon={SiMongodb} name="MongoDB" />
-            <li className="list-disc list-inside text-secondary ml-4">SQLite3</li>
+            <SkillItem Icon={SiSqlite} name="SQLite3" />
           </ul>
         </motion.div>
         
@@ -151,10 +154,11 @@ export default function Skills() {
           <ul className="text-secondary space-y-2">
             <SkillItem Icon={SiNumpy} name="Numpy" />
             <SkillItem Icon={SiPandas} name="Pandas" />
-            <li className="list-disc list-inside text-secondary ml-4">Matplotlib / OpenCV</li>
+            <li className="list-disc list-inside text-secondary ml-4">Matplotlib </li>
+            <SkillItem Icon={SiOpencv} name="OpenCV" />
+            <SkillItem Icon={SiArduino} name="Arduino | Raspberry Pi (Embedded)" />
            
             <li className="list-disc list-inside text-secondary ml-4">Scikit-learn / Langchain</li>
-            <li className="list-disc list-inside text-secondary ml-4">Arduino / Raspberry Pi (Embedded)</li>
           </ul>
         </motion.div>
         
