@@ -12,7 +12,6 @@
     "@emailjs/browser": "^4.4.1",
     "@heroicons/react": "^2.2.0",
     "@vercel/speed-insights": "^1.2.0",
-    "emailjs-com": "^3.2.0",
     "framer-motion": "^12.9.7",
     "next": "^15.5.6",
     "react": "^19.0.0",
