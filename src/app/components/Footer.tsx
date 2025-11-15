@@ -1,45 +1,43 @@
-import { FaGithub, FaFacebook, FaLinkedin } from 'react-icons/fa'
+// src/app/components/Footer.tsx
 
-export default function Footer() {
+// Social icons-এর জন্য FaIcon বা যা প্রয়োজন, তা ইমপোর্ট করুন (Placeholder)
+import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-white dark:bg-dark border-t border-gray-200 dark:border-gray-800">
-      <div className="container max-w-7xl mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex space-x-6">
-            <a
-              href="https://github.com/SayedAliff"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-secondary hover:text-primary transition-colors"
-            >
-              <FaGithub className="h-6 w-6" />
+    <footer className="w-full py-8 border-t dark:border-gray-700 mt-16">
+      {/* max-w-7xl mx-auto px-4  */}
+      {/* text-center  */}
+      <div className="max-w-7xl mx-auto px-4 text-center"> 
+        
+        {/* Social Icons */}
+        <div className="flex justify-center space-x-6 mb-4"> 
+            
+            <a href="mailto:your.email@example.com" target="_blank" rel="noopener noreferrer" className="dark:text-white hover:text-blue-500">
+                <FaEnvelope className="h-6 w-6" />
             </a>
-            <a
-              href="https://www.facebook.com/sayed.alif017"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-secondary hover:text-primary transition-colors"
-            >
-              <FaFacebook className="h-6 w-6" />
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="dark:text-white hover:text-blue-500">
+                <FaLinkedin className="h-6 w-6" />
             </a>
-            <a
-              href="https://www.linkedin.com/in/sayed-nafisur-rahman-alif-7660a81a6"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-secondary hover:text-primary transition-colors"
-            >
-              <FaLinkedin className="h-6 w-6" />
-            </a> 
+            <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer" className="dark:text-white hover:text-blue-500">
+                <FaGithub className="h-6 w-6" />
+            </a>
 
-            <div className="mb-4 md:mb-0">
-            <p className="text-sm text-secondary mt-2">
-              © {new Date().getFullYear()} Sayed Alif. All rights reserved.
-
-            </p>
-          </div>
-          </div>
         </div>
+
+        {/* Copyright Text */}
+        <p className="text-sm dark:text-gray-400">
+          Developed by Sayed Nafisur Rahman Alif.
+        </p>
+        <p className="text-xs dark:text-gray-500 mt-1">
+          &copy; {currentYear} All rights reserved.
+        </p>
+        
       </div>
     </footer>
-  )
-} 
+  );
+};
+
+export default Footer;
