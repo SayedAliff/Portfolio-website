@@ -1,3 +1,5 @@
+
+
 'use client'
 import Link from 'next/link'
 import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -13,12 +15,15 @@ export default function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // 🛠️ FIX: Changed links to hash tags (#) for Single-Page Smooth Scrolling Navigation
   const menuItems = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/blogs', label: 'Blogs' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: 'Home' }, // Home stays '/' to go to the top
+    { href: '#about', label: 'About' },
+    { href: '#experience', label: 'Experience' }, // Target the #experience ID
+    { href: '#skills', label: 'Skills' }, 
+    { href: '#projects', label: 'Projects' },
+    { href: '#blogs', label: 'Blogs' },
+    { href: '#contact', label: 'Contact' }, // Target the #contact ID
   ];
 
   return (
@@ -42,6 +47,7 @@ export default function Navbar() {
             {menuItems.map((item) => (
               <Link 
                 key={item.href}
+                // href now points to the section IDs (#about, #contact, etc.)
                 href={item.href} 
                 className="hover:text-primary transition-colors"
               >

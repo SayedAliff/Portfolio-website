@@ -157,12 +157,9 @@ export default function About() {
             {...cardHoverSmall}
           >
             <h3 className="text-xl font-semibold mb-2">American International University-Bangladesh</h3>
-            <p className="text-primary mb-2">Bachelor of Science in Computer Science • 2020 - 2025</p>
+            <p className="text-primary mb-2">Bachelor of Science in Computer Science and Engineering • 2020 - 2025</p>
             <p className="text-secondary">
-              B.Sc. in Computer Science and Engineering Major in Information Systems
-            </p>
-            <p className="text-secondary">
-              Major in Information Systems
+            Major in Information Systems
             </p>
           </motion.div>
         </motion.div>

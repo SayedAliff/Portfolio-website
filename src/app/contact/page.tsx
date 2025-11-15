@@ -70,7 +70,7 @@ export default function Contact() {
               <div>
                 <h3 className="font-semibold">Email</h3>
                 <a href="mailto:20-43489-1@student.aiub.edu" className="text-secondary hover:text-primary">
-                 20-43489-1@student.aiub.edu
+                 sayed.alif2002@gmail.com
                 </a>
               </div>
             </motion.div>

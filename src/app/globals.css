@@ -62,3 +62,8 @@ a {
     opacity: 1;
   }
 }
+
+html {
+  /* This enables smooth scrolling when navigating using anchor links */
+  scroll-behavior: smooth;
+}
