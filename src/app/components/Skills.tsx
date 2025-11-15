@@ -1,16 +1,17 @@
 
 
-'use client'
-
+ 'use client'
 import { motion } from 'framer-motion'
-import React from 'react'; // Necessary for React.ElementType type
+import React from 'react'; 
+// FIX: Removed the 5 unused Si icons to satisfy ESLint.
 import { 
     SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
     SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
-    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
-    SiFastapi, SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain 
+    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, SiDjango, SiNumpy, SiR
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
+
+// ... rest of the code is unchanged
 
 // Assuming these imports match your actual animations file location
 import { fadeInUp, fadeIn, staggerContainer, cardHover } from '@/utils/animations' 
@@ -37,7 +38,7 @@ export default function Skills() {
         Skills & Frameworks
       </motion.h2>
       <motion.div 
-      
+
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         variants={staggerContainer}
         initial="initial"
