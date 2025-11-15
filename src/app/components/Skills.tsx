@@ -7,7 +7,10 @@ import React from 'react';
 import { 
     SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
     SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
-    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, SiDjango, SiNumpy, SiR
+    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, SiDjango, SiNumpy, SiR,
+    SiCashapp,
+    SiPhp,
+    SiPandas
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
@@ -72,12 +75,15 @@ export default function Skills() {
           <FaLaptopCode className="h-8 w-8 text-green-500 mb-4" />
           <h3 className="text-xl font-semibold mb-2">Backend & Frameworks</h3>
           <ul className="text-secondary space-y-2">
-            <li className="list-disc list-inside text-secondary ml-4">C# / .NET (User added)</li> 
+            <li className="list-disc list-inside text-secondary ml-4">C# </li> 
+            <SkillItem Icon={SiCashapp} name="C#" />
             <SkillItem Icon={SiNodedotjs} name="Node.js" />
             <SkillItem Icon={SiExpress} name="Express.js" />
-            <li className="list-disc list-inside text-secondary ml-4">PHP (Traditional Web)</li>
+            
+            <SkillItem Icon={SiPhp} name="PHP" />
             <SkillItem Icon={SiDjango} name="Django REST Framework" />
             <li className="list-disc list-inside text-secondary ml-4">Postman / REST API</li>
+            <SkillItem Icon={SiPython} name="Pythone | FastAPI" />
           </ul>
         </motion.div>
         
@@ -143,8 +149,10 @@ export default function Skills() {
           <FaChartLine className="h-8 w-8 text-orange-500 mb-4" />
           <h3 className="text-xl font-semibold mb-2">Data Science & Embedded</h3>
           <ul className="text-secondary space-y-2">
-            <SkillItem Icon={SiNumpy} name="Numpy / Pandas" />
+            <SkillItem Icon={SiNumpy} name="Numpy" />
+            <SkillItem Icon={SiPandas} name="Pandas" />
             <li className="list-disc list-inside text-secondary ml-4">Matplotlib / OpenCV</li>
+           
             <li className="list-disc list-inside text-secondary ml-4">Scikit-learn / Langchain</li>
             <li className="list-disc list-inside text-secondary ml-4">Arduino / Raspberry Pi (Embedded)</li>
           </ul>
