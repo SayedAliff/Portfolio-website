@@ -1,4 +1,4 @@
-
+// src/app/components/Navbar.tsx (Updated for Single-Page Navigation)
 
 'use client'
 import Link from 'next/link'

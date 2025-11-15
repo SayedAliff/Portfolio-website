@@ -1,58 +1,58 @@
-// src/app/page.tsx (Full replacement for Single-Page Assembly)
+
 
 // Import components from their respective folders/files:
 import AboutPage from './about/page';
 import BlogsPage from './blogs/page';
 import ContactPage from './contact/page';
 
-// Assuming you have components in src/app/components
+// Import NEWLY CREATED components from src/app/components
 import Hero from './components/Hero'; 
 import Projects from './components/Projects';
-// Placeholder component for Skills (if separate from About)
-const SkillsSection = () => <div className="py-24 text-center" id="skills"><h2 className="text-3xl">Skills Section Content</h2></div>
-// Placeholder component for Experience
-const ExperienceSection = () => <div className="py-24 text-center"><h2>Experience Section Content</h2></div>
+import Skills from './components/Skills'; // NEW
+import Experience from './components/Experience'; // NEW
+import Education from './components/Education'; // NEW
 
 
 export default function Home() {
   return (
     <main>
       
-      {/* 1. Home / Hero Section - ID target: #home (optional) */}
+      {/* 1. Home / Hero Section */}
       <section id="home">
           <Hero />
       </section>
 
       {/* 2. About Section - ID target: #about */}
       <section id="about">
-          {/* Renders the content from the about/page.tsx file */}
           <AboutPage /> 
       </section>
 
-      {/* 3. Experience Section - ID target: #experience */}
-      <section id="experience">
-          <ExperienceSection /> 
-      </section>
-      
-      {/* 4. Skills Section - ID target: #skills */}
-      <section id="skills">
-          {/* Renders your dedicated Skills component */}
-          <SkillsSection /> 
+      {/* 3. Skills Section - ID target: #skills */}
+      <section id="skills" className="py-8">
+          <Skills /> 
       </section>
 
-      {/* 5. Projects Section - ID target: #projects */}
-      <section id="projects">
-          {/* Assuming Projects component displays your projects */}
-          <Projects /> 
+      {/* 4. Experience Section - ID target: #experience */}
+      <section id="experience" className="py-8">
+          <Experience /> 
       </section>
       
-      {/* 6. Blogs Section - ID target: #blogs */}
+      {/* 5. Education Section - ID target: #education (Poor Education Link) */}
+      <section id="education" className="py-8">
+          <Education />
+      </section>
+
+      {/* 6. Projects Section - ID target: #projects */}
+      <section id="projects">
+          <Projects />
+      </section>
+      
+      {/* 7. Blogs Section - ID target: #blogs */}
       <section id="blogs">
-          {/* Renders the content from the blogs/page.tsx file */}
           <BlogsPage />
       </section>
 
-      {/* 7. Contact Section - ID target: #contact */}
+      {/* 8. Contact Section - ID target: #contact */}
       <section id="contact">
           <ContactPage />
       </section>
