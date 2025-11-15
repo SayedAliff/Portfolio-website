@@ -1,21 +1,21 @@
-// src/app/components/Skills.tsx (Final Code - Unused Imports Removed)
+
 
 'use client'
 import { motion } from 'framer-motion'
 import React from 'react'; 
-// FIX: Removed SiGithubactions, SiScikitlearn, SiLangchain to resolve final build errors.
+// FIX: Removed 'cardHover' from import list to resolve the final ESLint error (Line 18:46).
 import { 
     SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
-    SiNodedotjs, SiExpress, SiGit, SiDocker, SiNginx, SiReact, 
+    SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
     SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
-    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiPhp, SiSqlite, 
-    SiArduino, SiFastapi, 
+    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain, SiPhp, 
+    SiSqlite, SiArduino, SiFastapi, 
     SiDotnet
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
-// Assuming these imports match your actual animations file location
-import { fadeInUp, fadeIn, staggerContainer, cardHover } from '@/utils/animations' 
+// Only import necessary animations.
+import { fadeInUp, fadeIn, staggerContainer } from '@/utils/animations' 
 
 // Using React.ElementType to avoid the 'any' type error
 const SkillItem = ({ Icon, name }: { Icon: React.ElementType, name: string }) => (
@@ -77,11 +77,9 @@ export default function Skills() {
             <SkillItem Icon={SiFastapi} name="Python | FastAPI" />
             <SkillItem Icon={SiNodedotjs} name="Node.js" />
             <SkillItem Icon={SiExpress} name="Express.js" />
-
             <SkillItem Icon={SiPhp} name="PHP" />
             <SkillItem Icon={SiDjango} name="Django REST Framework" />
             <li className="list-disc list-inside text-secondary ml-4">Postman / REST API</li>
-
           </ul>
         </motion.div>
         
@@ -149,7 +147,6 @@ export default function Skills() {
           <ul className="text-secondary space-y-2">
             <SkillItem Icon={SiNumpy} name="Numpy" />
             <SkillItem Icon={SiPandas} name="Pandas" />
-            {/* Removed unused imports for a cleaner build */}
             <li className="list-disc list-inside text-secondary ml-4">Matplotlib / Scikit-learn / Langchain</li>
             <SkillItem Icon={SiOpencv} name="OpenCV" />
             <SkillItem Icon={SiArduino} name="Arduino / Raspberry Pi (Embedded)" />
