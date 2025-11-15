@@ -1,21 +1,21 @@
-
+// src/app/components/Skills.tsx (Final Unused Imports Fix)
 
 'use client'
 import { motion } from 'framer-motion'
 import React from 'react'; 
-// FIX: Removed 'cardHover' from import list to resolve the final ESLint error (Line 18:46).
+// FIX: Removed the 3 unused icons (SiGithubactions, SiScikitlearn, SiLangchain)
 import { 
     SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
-    SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
+    SiNodedotjs, SiExpress, SiGit, SiDocker, SiNginx, SiReact, 
     SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
-    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain, SiPhp, 
-    SiSqlite, SiArduino, SiFastapi, 
+    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, 
+    SiPhp, SiSqlite, SiArduino, SiFastapi, // All remaining used icons
     SiDotnet
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
-// Only import necessary animations.
-import { fadeInUp, fadeIn, staggerContainer } from '@/utils/animations' 
+// Assuming these imports match your actual animations file location
+import { fadeInUp, fadeIn, staggerContainer, cardHover } from '@/utils/animations' 
 
 // Using React.ElementType to avoid the 'any' type error
 const SkillItem = ({ Icon, name }: { Icon: React.ElementType, name: string }) => (
@@ -39,7 +39,7 @@ export default function Skills() {
         Skills & Frameworks
       </motion.h2>
       <motion.div 
-
+      
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         variants={staggerContainer}
         initial="initial"
@@ -147,6 +147,7 @@ export default function Skills() {
           <ul className="text-secondary space-y-2">
             <SkillItem Icon={SiNumpy} name="Numpy" />
             <SkillItem Icon={SiPandas} name="Pandas" />
+            {/* FIX: Combined remaining list items into one line of plain text */}
             <li className="list-disc list-inside text-secondary ml-4">Matplotlib / Scikit-learn / Langchain</li>
             <SkillItem Icon={SiOpencv} name="OpenCV" />
             <SkillItem Icon={SiArduino} name="Arduino / Raspberry Pi (Embedded)" />
