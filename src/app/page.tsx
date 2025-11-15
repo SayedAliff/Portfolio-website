@@ -2,14 +2,14 @@
 
 // Import components from their respective folders/files:
 import AboutPage from './about/page';
-import Blogs from './blogs/page'; // FIX 1: Changed import name to 'Blogs'
+import Blogs from './blogs/page'; 
 import ContactPage from './contact/page';
 
 // Import components from src/app/components
 import Hero from './components/Hero'; 
 import Projects from './components/Projects';
 import Skills from './components/Skills'; 
-import Experience from './components/Experience'; 
+// NOTE: Experience import removed to resolve the "defined but never used" error.
 import Education from './components/Education'; 
 
 
@@ -36,15 +36,9 @@ export default function Home() {
           <Skills /> 
       </section>
 
-      {/* 4. Experience Section - ID target: #experience 
-          THIS SECTION IS COMMENTED OUT (Hidden from the website)
-      */}
-      {/*
-      <section 
-          id="experience" 
-          className="min-h-screen py-8 flex flex-col items-center justify-center">
-          <Experience /> 
-      </section>
+      {/* 4. Experience Section - Hidden for now */}
+      {/* The section JSX is commented out (hidden), and the component import is removed.
+          You can re-add the Experience import and JSX later when needed.
       */}
       
       {/* 5. Education Section - ID target: #education */}
@@ -63,7 +57,7 @@ export default function Home() {
       
       {/* 7. Blogs Section - ID target: #blogs */}
       <section id="blogs">
-          <Blogs /> {/* FIX 2: Used the new import name 'Blogs' */}
+          <Blogs />
       </section>
 
       {/* 8. Contact Section - ID target: #contact */}
