@@ -14,7 +14,7 @@ import {
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
 // Assuming these imports match your actual animations file location
-import { fadeInUp, fadeIn, staggerContainer, cardHover } from '@/utils/animations' 
+import { fadeInUp, fadeIn, staggerContainer } from '@/utils/animations' 
 
 // Using React.ElementType to avoid the 'any' type error
 const SkillItem = ({ Icon, name }: { Icon: React.ElementType, name: string }) => (
