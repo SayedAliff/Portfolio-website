@@ -1,18 +1,22 @@
 
 
 'use client'
-// FIX 1: Removed incorrect SiJava import. Added FaJava to Fa import (Line 7)
+
 import { motion } from 'framer-motion'
-// FIX 2: Corrected the icon list
-import { SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, SiFastapi, SiDjango, SiJinja, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain } from 'react-icons/si'
-// FIX 3: Added FaJava to the Fa import list for the Java icon
+import React from 'react'; // Necessary for React.ElementType type
+import { 
+    SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
+    SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
+    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
+    SiFastapi, SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain 
+} from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
 // Assuming these imports match your actual animations file location
 import { fadeInUp, fadeIn, staggerContainer, cardHover } from '@/utils/animations' 
 
-// Helper function to render a list item with its corresponding Simple Icon
-const SkillItem = ({ Icon, name }: { Icon: any, name: string }) => (
+// FIX: Using React.ElementType to avoid the 'any' type error
+const SkillItem = ({ Icon, name }: { Icon: React.ElementType, name: string }) => (
     <li className="flex items-center gap-3">
         <Icon className="h-4 w-4 text-gray-500 dark:text-gray-400" />
         {name}
@@ -33,7 +37,7 @@ export default function Skills() {
         Skills & Frameworks
       </motion.h2>
       <motion.div 
-        // 3x2 Grid structure mirroring the design
+      
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         variants={staggerContainer}
         initial="initial"
@@ -53,7 +57,7 @@ export default function Skills() {
             <SkillItem Icon={SiJavascript} name="JavaScript" />
             <SkillItem Icon={SiTypescript} name="TypeScript" />
             <SkillItem Icon={SiCplusplus} name="C++" />
-            <SkillItem Icon={FaJava} name="Java" /> {/* 👈 FIX: Changed to FaJava */}
+            <SkillItem Icon={FaJava} name="Java" /> 
             <SkillItem Icon={SiR} name="R" />
           </ul>
         </motion.div>

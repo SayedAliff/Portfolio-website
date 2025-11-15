@@ -1,9 +1,7 @@
-// src/app/components/Experience.tsx (ESLint Fix)
+ 'use client'
 
-'use client'
 import { motion } from 'framer-motion'
-// FIX: Added directive to temporarily ignore the 'defined but never used' error
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// FIX: Removed the eslint-disable directive as the build failed on it.
 import { fadeInUp, fadeIn, staggerContainer, cardHoverSmall } from '@/utils/animations'
 
 export default function Experience() {
