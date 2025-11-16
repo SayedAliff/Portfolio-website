@@ -1,4 +1,5 @@
 
+
 'use client'; 
 import Image from 'next/image'; 
 import Link from 'next/link';
@@ -44,15 +45,16 @@ export default function Hero() {
             animate="animate"
             className="mb-4 mx-auto"
         >
-            {/* 🛠️ FIX: Increased size from h-40 w-40 to h-52 w-52 for larger radius */}
-            <Image 
-                src="/profile.avif" // Assuming the image is at /public/profile.avif
-                alt="Sayed Nafisur Rahman Alif" 
-                width={208} // New size: 52 * 4 = 208px
-                height={208} // New size: 52 * 4 = 208px
-                className="rounded-full object-cover mx-auto shadow-2xl" 
-                priority 
-            />
+            {/* 🛠️ FIX: Added square container (w-52 h-52) and used 'fill' to ensure perfect circle shape */}
+            <div className="w-52 h-52 mx-auto relative rounded-full overflow-hidden shadow-2xl">
+                <Image 
+                    src="/profile.avif" // Assuming the image is at /public/profile.avif
+                    alt="Sayed Nafisur Rahman Alif" 
+                    fill // Use fill to make the image cover the parent square container
+                    className="object-cover" 
+                    priority 
+                />
+            </div>
         </motion.div>
 
         {/* Full Name Split: Blue "Hello, I'm" + Gradient Name */}
@@ -60,10 +62,10 @@ export default function Hero() {
             className="text-5xl md:text-6xl font-bold mb-4"
             {...fadeInUp}
         >
-          <span className="text-blue-500">Hello, I&apos;m </span> {/* 👈 Part 1: Solid Blue */}
+          <span className="text-blue-500">Hello, I&apos;m </span>
           
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
-            Sayed Nafisur Rahman Alif {/* 👈 Part 2: Gradient Name */}
+            Sayed Nafisur Rahman Alif
           </span>
         </motion.h1>
         
