@@ -1,32 +1,26 @@
-
+// src/app/components/Hero.tsx (FINAL COMPLETE CODE with Infinite Scroll)
 
 'use client'; 
 import Image from 'next/image'; 
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import { fadeInUp, scaleIn, staggerContainer } from '@/utils/animations'; // Add staggerContainer import
-// Importing ALL necessary Si icons for the cloud
-import { 
-    SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
-    SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
-    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
-    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain, SiPhp, 
-    SiSqlite, SiArduino, SiSharp,SiFastapi 
-} from 'react-icons/si'
-// Import FaIcons only if necessary (FaChartLine, FaCloud, etc.)
-import { FaChartLine, FaCloud, FaLaptopCode, FaDatabase, FaReact } from 'react-icons/fa' 
+// Import necessary icons for the bottom row
+import { SiDocker, SiLinux, SiPython, SiGit, SiFramer, SiTypescript } from 'react-icons/si'; 
+import { fadeInUp, scaleIn } from '@/utils/animations'; 
 
-
-// Custom component to render the icon row
-const TechIconComponents = [
-    SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
-    SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
-    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
-    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain, SiPhp, 
-    SiSqlite, SiArduino, SiSharp, SiFastapi
+// Custom component to render the icon row - ADDED HREFS
+const TechIcons = [
+    { icon: SiDocker, name: 'Docker', href: 'https://www.docker.com/' },
+    { icon: SiLinux, name: 'Linux', href: 'https://www.linux.org/' },
+    { icon: SiGit, name: 'Git', href: 'https://git-scm.com/' },
+    { icon: SiPython, name: 'Python', href: 'https://www.python.org/' },
+    { icon: SiFramer, name: 'Framer Motion', href: 'https.framer.com/motion/' },
+    { icon: SiTypescript, name: 'TypeScript', href: 'https://www.typescriptlang.org/' },
 ];
 
+// Combine the array twice to ensure a seamless looping visual effect
+const InfiniteIcons = [...TechIcons, ...TechIcons];
 
 export default function Hero() {
   
@@ -42,7 +36,7 @@ export default function Hero() {
     deleteSpeed: 30,
     delaySpeed: 1500,
   });
-
+  
 
   const colorCycle: Variants = { 
     initial: { color: "#ffffff" }, 
@@ -107,27 +101,42 @@ export default function Hero() {
             Full Stack Developer | UI/UX Enthusiast | Open Source Contributor
         </p>
         
-        {/* 👇 FINAL ICON CLOUD: Large, Purple/Pink Icons */}
-        <motion.div 
-            className="flex flex-wrap justify-center items-center gap-6 py-8 px-4 max-w-4xl mx-auto"
-            variants={staggerContainer} // Use stagger for entrance effect
-            initial="initial"
-            animate="animate"
-        >
-            {TechIconComponents.map((Icon, index) => (
-                <motion.a 
-                    key={index}
-                    // Apply the vibrant purple/pink monochrome color and large size
-                    className="text-purple-500 opacity-80 hover:opacity-100 transition-opacity" 
-                    href="#" // Placeholder link
-                    target="_blank"
-                    variants={fadeInUp} // Use fadeInUp for staggered entrance
-                >
-                    <Icon className="h-10 w-10 md:h-12 md:w-12" />
-                </motion.a>
-            ))}
-        </motion.div>
-        {/* 👆 END ICON CLOUD */}
+        {/* 👇 FINAL FIX: Continuous Animated Technology Icon Row */}
+        <div className="py-6 overflow-hidden w-full max-w-4xl mx-auto">
+            <motion.div 
+                className="flex w-fit" // w-fit ensures the div is long enough to hold all icons
+                
+                // FINAL ANIMATION FOR INFINITE SCROLL
+                animate={{
+                    x: ['0%', '-50%'], // Scrolls horizontally from start to the middle of the duplicated list
+                }}
+                transition={{
+                    x: {
+                        repeat: Infinity, // Repeat indefinitely
+                        ease: 'linear', // Keep speed constant
+                        duration: 35, // Adjust duration for scroll speed
+                    },
+                }}
+            >
+                {/* Map the combined array (InfiniteIcons) for the seamless loop */}
+                {InfiniteIcons.map((tech, index) => (
+                    <motion.a 
+                        key={index}
+                        href={tech.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        // flex-shrink-0 is essential to keep icons from wrapping
+                        className="text-purple-400 opacity-80 hover:opacity-100 transition-opacity flex-shrink-0 mx-6" 
+                        whileHover={{ scale: 1.1, y: -5 }}
+                        transition={{ type: 'spring', stiffness: 300 }}
+                    >
+                        <tech.icon className="h-10 w-10" />
+                    </motion.a>
+                ))}
+
+            </motion.div>
+        </div>
+        {/* 👆 END NEW ICON ROW */}
 
         <motion.div className="flex justify-center space-x-4 mt-4">
             <Link href="#contact" className="btn btn-primary">Get In Touch</Link>
