@@ -1,10 +1,11 @@
-
+// src/app/components/Hero.tsx (FINAL ERROR-FREE CODE)
 
 'use client'; 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { fadeInUp, scaleIn } from '@/utils/animations'; 
+// Image import removed previously
 
 export default function Hero() {
   
@@ -21,12 +22,12 @@ export default function Hero() {
     delaySpeed: 1500,
   });
 
-  // FIX: Merged transition into the animate property of the variant (Resolves Type Conflict)
+  // FINAL FIX: Merged transition into the animate property of the variant (Resolves Type Conflict)
   const colorCycle = {
-    initial: {}, 
+    initial: { color: "#ffffff" }, // Define initial state
     animate: {
         color: ["#ff0000", "#ff7b00", "#00ff3c", "#0055ff", "#c800ff", "#ff0000"], 
-        transition: { // 👈 FIX: Transition is now defined inside the animate block
+        transition: { // 👈 FIX: Transition is now defined correctly inside the animate block
             duration: 5,
             ease: "easeInOut",
             repeat: Infinity,
@@ -64,10 +65,10 @@ export default function Hero() {
           
           {/* Apply the colorCycle variant here */}
           <motion.span 
-              variants={scaleIn} // Changed from 'variant' to 'variants'
+              variants={colorCycle} // Uses the clean, merged variant
               initial="initial"
               animate="animate"
-              // The transition is now inside the colorCycle variant definition (Line 31)
+              // No external transition prop needed
           >
             {text}
           </motion.span>
