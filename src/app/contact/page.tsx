@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser' 
-// FIX: Cleaned up the import line to only contain necessary, now defined exports
+
 import { fadeInUp, fadeIn, slideInLeft, slideInRight } from '@/utils/animations' 
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
