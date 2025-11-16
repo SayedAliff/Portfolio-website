@@ -38,32 +38,34 @@ export default function Hero() {
     <section id="home" className="min-h-screen pt-24 pb-12 flex flex-col items-center justify-center">
       <div className="text-center max-w-4xl">
         
-        {/* Profile Picture using scaleIn variant - NOW SHOWING IMAGE */}
+        {/* Profile Picture using scaleIn variant */}
         <motion.div 
             variants={scaleIn}
             initial="initial"
             animate="animate"
             className="mb-4 mx-auto"
         >
-            {/* 👈 FIX: Replaced placeholder div with the Image component */}
+            {/* 🛠️ FIX: Increased size from h-40 w-40 to h-52 w-52 for larger radius */}
             <Image 
                 src="/profile.avif" // Assuming the image is at /public/profile.avif
                 alt="Sayed Nafisur Rahman Alif" 
-                width={160} 
-                height={160} 
-                className="rounded-full object-cover mx-auto shadow-xl" 
+                width={208} // New size: 52 * 4 = 208px
+                height={208} // New size: 52 * 4 = 208px
+                className="rounded-full object-cover mx-auto shadow-2xl" 
                 priority 
             />
         </motion.div>
 
-        {/* Colorize Full Name (Gradient Effect) */}
+        {/* Full Name Split: Blue "Hello, I'm" + Gradient Name */}
         <motion.h1 
-            className="text-5xl md:text-6xl font-bold mb-4 
-                       bg-clip-text text-transparent bg-gradient-to-r 
-                       from-pink-500 via-purple-500 to-indigo-500" 
+            className="text-5xl md:text-6xl font-bold mb-4"
             {...fadeInUp}
         >
-          Hello, I&apos;m Sayed Nafisur Rahman Alif
+          <span className="text-blue-500">Hello, I&apos;m </span> {/* 👈 Part 1: Solid Blue */}
+          
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
+            Sayed Nafisur Rahman Alif {/* 👈 Part 2: Gradient Name */}
+          </span>
         </motion.h1>
         
         {/* Dynamic Typewriter Text with RGB Cycling Effect */}
