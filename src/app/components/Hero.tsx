@@ -1,13 +1,14 @@
-// src/app/components/Hero.tsx (FINAL CODE with FASTER SCROLL)
+
 
 'use client'; 
+import Image from 'next/image'; 
 import Link from 'next/link';
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants, useAnimation } from 'framer-motion'; // useAnimation added
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { fadeInUp, scaleIn } from '@/utils/animations'; 
-// Import necessary icons for the bottom row
-import { SiDocker, SiLinux, SiPython, SiGit, SiFramer, SiTypescript } from 'react-icons/si'; 
-import Image from 'next/image';
+// Import necessary icons
+import { SiDocker, SiLinux, SiPython, SiGit, SiFramer, SiTypescript, SiJavascript, SiMysql, SiMongodb, SiReact, SiFastapi, SiArduino, SiPhp, SiNodedotjs, SiMacos } from 'react-icons/si'; 
+import React from 'react'; // React imported for useEffect/useAnimation
 
 // Custom component to render the icon row - ADDED HREFS
 const TechIcons = [
@@ -15,12 +16,22 @@ const TechIcons = [
     { icon: SiLinux, name: 'Linux', href: 'https://www.linux.org/' },
     { icon: SiGit, name: 'Git', href: 'https://git-scm.com/' },
     { icon: SiPython, name: 'Python', href: 'https://www.python.org/' },
-    { icon: SiFramer, name: 'Framer Motion', href: 'https.framer.com/motion/' },
+    { icon: SiFramer, name: 'Framer Motion', href: 'https://www.framer.com/motion/' },
     { icon: SiTypescript, name: 'TypeScript', href: 'https://www.typescriptlang.org/' },
+    { icon: SiJavascript, name: 'JavaScript', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+    { icon: SiMysql, name: 'MySQL', href: 'https://www.mysql.com/' },
+    { icon: SiMongodb, name: 'MongoDB', href: 'https://www.mongodb.com/' },
+    { icon: SiReact, name: 'React', href: 'https://reactjs.org/' },
+    { icon: SiFastapi, name: 'FastAPI', href: 'https://fastapi.tiangolo.com/' },
+    { icon: SiArduino, name: 'Arduino', href: 'https://www.arduino.cc/' },
+    { icon: SiPhp, name: 'PHP', href: 'https://www.php.net/' },
+    { icon: SiNodedotjs, name: 'Node.js', href: 'https://nodejs.org/' },
+    { icon: SiMacos, name: 'macOS', href: 'https://www.apple.com/macos/' },
 ];
 
 // Combine the array twice for a seamless loop
 const InfiniteIcons = [...TechIcons, ...TechIcons];
+
 
 export default function Hero() {
   
@@ -47,6 +58,37 @@ export default function Hero() {
         }
     }
   };
+
+  // 1. Setup Animation Controller
+  const scrollControls = useAnimation();
+  
+// 2. Define Animation and Transitions with Easing Fix
+  const scrollAnimation = { x: ['0%', '-50%'] };
+  
+  const fastTransition = {
+      x: {
+          repeat: Infinity,
+          ease: (t: number) => t, // linear easing function
+          duration: 17, // Fast speed
+      },
+  };
+  const pauseTransition = {
+      x: {
+          repeat: Infinity,
+          ease: (t: number) => t, // linear easing function
+          duration: 1700, // Very long duration to simulate pause
+      },
+  };
+
+  // 3. Control Functions
+  const startScroll = () => { scrollControls.start(scrollAnimation, fastTransition); };
+  const slowScroll = () => { scrollControls.start(scrollAnimation, pauseTransition); };
+  
+  // Start the animation when component mounts
+  React.useEffect(() => {
+      startScroll();
+  }, []); 
+
 
   return (
     <section id="home" className="min-h-screen pt-24 pb-12 flex flex-col items-center justify-center">
@@ -100,28 +142,24 @@ export default function Hero() {
             Full Stack Developer | UI/UX Enthusiast | Open Source Contributor
         </p>
         
-        {/* Continuous Animated Technology Icon Row */}
-        <div className="py-6 overflow-hidden w-full max-w-4xl mx-auto">
+        {/* Continuous Animated Technology Icon Row - WITH HOVER PAUSE */}
+        <div 
+            className="py-6 overflow-hidden w-full max-w-4xl mx-auto"
+            onMouseEnter={slowScroll} 
+            onMouseLeave={startScroll} 
+        >
             <motion.div 
                 className="flex w-fit" 
-                animate={{
-                    x: ['0%', '-50%'], 
-                }}
-                transition={{
-                    x: {
-                        repeat: Infinity,
-                        ease: 'linear', 
-                        duration: 17, // 👈 FIX: Changed from 35s to 17s for faster speed
-                    },
-                }}
+                animate={scrollControls} 
             >
+                {/* Map the combined array for the seamless loop */}
                 {InfiniteIcons.map((tech, index) => (
                     <motion.a 
                         key={index}
                         href={tech.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-purple-400 opacity-80 hover:opacity-100 transition-opacity flex-shrink-0 mx-6" 
+                        className="opacity-80 hover:opacity-100 transition-opacity flex-shrink-0 mx-6" 
                         whileHover={{ scale: 1.1, y: -5 }}
                         transition={{ type: 'spring', stiffness: 300 }}
                     >
@@ -131,8 +169,7 @@ export default function Hero() {
 
             </motion.div>
         </div>
-        {/* END ICON ROW */}
-
+        
         <motion.div className="flex justify-center space-x-4 mt-4">
             <Link href="#contact" className="btn btn-primary">Get In Touch</Link>
             <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">View Resume</Link>
