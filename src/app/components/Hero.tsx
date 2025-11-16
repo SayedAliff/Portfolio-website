@@ -1,13 +1,13 @@
-// src/app/components/Hero.tsx (FINAL COMPLETE CODE with Infinite Scroll)
+// src/app/components/Hero.tsx (FINAL CODE with FASTER SCROLL)
 
 'use client'; 
-import Image from 'next/image'; 
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import { fadeInUp, scaleIn } from '@/utils/animations'; 
 // Import necessary icons for the bottom row
 import { SiDocker, SiLinux, SiPython, SiGit, SiFramer, SiTypescript } from 'react-icons/si'; 
-import { fadeInUp, scaleIn } from '@/utils/animations'; 
+import Image from 'next/image';
 
 // Custom component to render the icon row - ADDED HREFS
 const TechIcons = [
@@ -19,7 +19,7 @@ const TechIcons = [
     { icon: SiTypescript, name: 'TypeScript', href: 'https://www.typescriptlang.org/' },
 ];
 
-// Combine the array twice to ensure a seamless looping visual effect
+// Combine the array twice for a seamless loop
 const InfiniteIcons = [...TechIcons, ...TechIcons];
 
 export default function Hero() {
@@ -36,7 +36,6 @@ export default function Hero() {
     deleteSpeed: 30,
     delaySpeed: 1500,
   });
-  
 
   const colorCycle: Variants = { 
     initial: { color: "#ffffff" }, 
@@ -101,31 +100,27 @@ export default function Hero() {
             Full Stack Developer | UI/UX Enthusiast | Open Source Contributor
         </p>
         
-        {/* 👇 FINAL FIX: Continuous Animated Technology Icon Row */}
+        {/* Continuous Animated Technology Icon Row */}
         <div className="py-6 overflow-hidden w-full max-w-4xl mx-auto">
             <motion.div 
-                className="flex w-fit" // w-fit ensures the div is long enough to hold all icons
-                
-                // FINAL ANIMATION FOR INFINITE SCROLL
+                className="flex w-fit" 
                 animate={{
-                    x: ['0%', '-50%'], // Scrolls horizontally from start to the middle of the duplicated list
+                    x: ['0%', '-50%'], 
                 }}
                 transition={{
                     x: {
-                        repeat: Infinity, // Repeat indefinitely
-                        ease: 'linear', // Keep speed constant
-                        duration: 35, // Adjust duration for scroll speed
+                        repeat: Infinity,
+                        ease: 'linear', 
+                        duration: 17, // 👈 FIX: Changed from 35s to 17s for faster speed
                     },
                 }}
             >
-                {/* Map the combined array (InfiniteIcons) for the seamless loop */}
                 {InfiniteIcons.map((tech, index) => (
                     <motion.a 
                         key={index}
                         href={tech.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        // flex-shrink-0 is essential to keep icons from wrapping
                         className="text-purple-400 opacity-80 hover:opacity-100 transition-opacity flex-shrink-0 mx-6" 
                         whileHover={{ scale: 1.1, y: -5 }}
                         transition={{ type: 'spring', stiffness: 300 }}
@@ -136,7 +131,7 @@ export default function Hero() {
 
             </motion.div>
         </div>
-        {/* 👆 END NEW ICON ROW */}
+        {/* END ICON ROW */}
 
         <motion.div className="flex justify-center space-x-4 mt-4">
             <Link href="#contact" className="btn btn-primary">Get In Touch</Link>
