@@ -1,22 +1,22 @@
-// src/app/components/Hero.tsx (FINAL COMPLETE CODE WITH ICON ROW)
+
 
 'use client'; 
 import Image from 'next/image'; 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion'; // Import Variants for strict typing
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
+import { fadeInUp, scaleIn } from '@/utils/animations'; 
 // Import necessary icons for the bottom row
 import { SiDocker, SiLinux, SiPython, SiGit, SiFramer, SiTypescript } from 'react-icons/si'; 
-import { fadeInUp, scaleIn } from '@/utils/animations'; 
 
-// Custom component to render the icon row
+// Custom component to render the icon row - ADDED HREFS
 const TechIcons = [
-    { icon: SiDocker, name: 'Docker' },
-    { icon: SiLinux, name: 'Linux' },
-    { icon: SiGit, name: 'Git' },
-    { icon: SiPython, name: 'Python' },
-    { icon: SiFramer, name: 'Framer' },
-    { icon: SiTypescript, name: 'TypeScript' },
+    { icon: SiDocker, name: 'Docker', href: 'https://www.docker.com/' },
+    { icon: SiLinux, name: 'Linux', href: 'https://www.linux.org/' },
+    { icon: SiGit, name: 'Git', href: 'https://git-scm.com/' },
+    { icon: SiPython, name: 'Python', href: 'https://www.python.org/' },
+    { icon: SiFramer, name: 'Framer Motion', href: 'https.framer.com/motion/' },
+    { icon: SiTypescript, name: 'TypeScript', href: 'https://www.typescriptlang.org/' },
 ];
 
 export default function Hero() {
@@ -34,7 +34,8 @@ export default function Hero() {
     delaySpeed: 1500,
   });
 
-  const colorCycle = {
+  // Final colorCycle variant structure (Fixes Type Conflict)
+  const colorCycle: Variants = { 
     initial: { color: "#ffffff" }, 
     animate: {
         color: ["#ff0000", "#ff7b00", "#00ff3c", "#0055ff", "#c800ff", "#ff0000"], 
@@ -97,7 +98,7 @@ export default function Hero() {
             Full Stack Developer | UI/UX Enthusiast | Open Source Contributor
         </p>
         
-        {/* 👇 NEW: Animated Technology Icon Row */}
+        {/* 👇 NEW: Clickable Animated Technology Icon Row */}
         <motion.div 
             className="flex justify-center space-x-6 py-6"
             initial={{ opacity: 0, y: 20 }}
@@ -105,15 +106,18 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
         >
             {TechIcons.map((tech, index) => (
-                <motion.div
+                <motion.a // 👈 Changed to motion.a for linking
                     key={index}
+                    href={tech.href} // Use the specific URL
+                    target="_blank"
+                    rel="noopener noreferrer"
                     // Apply a glowing, monochrome purple/pink style
                     className="text-purple-400 opacity-80 hover:opacity-100 transition-opacity" 
                     whileHover={{ scale: 1.1, y: -5 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                 >
                     <tech.icon className="h-8 w-8 md:h-10 md:w-10" />
-                </motion.div>
+                </motion.a>
             ))}
         </motion.div>
         {/* 👆 END NEW ICON ROW */}
