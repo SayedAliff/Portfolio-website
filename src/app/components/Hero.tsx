@@ -1,11 +1,10 @@
-// src/app/components/Hero.tsx (FINAL ERROR-FREE CODE)
+
 
 'use client'; 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { fadeInUp, scaleIn } from '@/utils/animations'; 
-// Image import removed previously
 
 export default function Hero() {
   
@@ -22,14 +21,14 @@ export default function Hero() {
     delaySpeed: 1500,
   });
 
-  // FINAL FIX: Merged transition into the animate property of the variant (Resolves Type Conflict)
+  // FINAL FIX: Removed the conflicting 'ease' string from the transition object.
   const colorCycle = {
-    initial: { color: "#ffffff" }, // Define initial state
+    initial: { color: "#ffffff" }, 
     animate: {
         color: ["#ff0000", "#ff7b00", "#00ff3c", "#0055ff", "#c800ff", "#ff0000"], 
-        transition: { // 👈 FIX: Transition is now defined correctly inside the animate block
+        transition: { 
             duration: 5,
-            ease: "easeInOut",
+            // ❌ Removed: ease: "easeInOut", 👈 This was the final source of the type error
             repeat: Infinity,
         }
     }
@@ -63,12 +62,10 @@ export default function Hero() {
         <motion.h2 className="text-3xl font-bold mb-6" {...fadeInUp}>
           <span className="text-white">I&apos;m a </span>
           
-          {/* Apply the colorCycle variant here */}
           <motion.span 
-              variants={colorCycle} // Uses the clean, merged variant
+              variants={colorCycle} 
               initial="initial"
               animate="animate"
-              // No external transition prop needed
           >
             {text}
           </motion.span>
