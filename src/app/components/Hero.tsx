@@ -1,11 +1,11 @@
 
 
 'use client'; 
-import Image from 'next/image'; 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion'; // Import Variants for strict typing
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { fadeInUp, scaleIn } from '@/utils/animations'; 
+import Image from 'next/image'; 
 
 export default function Hero() {
   
@@ -22,13 +22,14 @@ export default function Hero() {
     delaySpeed: 1500,
   });
 
-  // Final colorCycle variant structure (Fixes Type Conflict)
-  const colorCycle = {
+  // FINAL FIX: Using Variants type and merged transition for compatibility
+  const colorCycle: Variants = { 
     initial: { color: "#ffffff" }, 
     animate: {
         color: ["#ff0000", "#ff7b00", "#00ff3c", "#0055ff", "#c800ff", "#ff0000"], 
         transition: { 
             duration: 5,
+            ease: "easeInOut", // Re-added ease property
             repeat: Infinity,
         }
     }
@@ -45,19 +46,18 @@ export default function Hero() {
             animate="animate"
             className="mb-4 mx-auto"
         >
-            {/* 🛠️ FIX: Added square container (w-52 h-52) and used 'fill' to ensure perfect circle shape */}
             <div className="w-52 h-52 mx-auto relative rounded-full overflow-hidden shadow-2xl">
                 <Image 
-                    src="/profile.avif" // Assuming the image is at /public/profile.avif
+                    src="/profile.avif"
                     alt="Sayed Nafisur Rahman Alif" 
-                    fill // Use fill to make the image cover the parent square container
+                    fill 
                     className="object-cover" 
                     priority 
                 />
             </div>
         </motion.div>
 
-        {/* Full Name Split: Blue "Hello, I'm" + Gradient Name */}
+        {/* Colorize Full Name (Gradient Effect) */}
         <motion.h1 
             className="text-5xl md:text-6xl font-bold mb-4"
             {...fadeInUp}
