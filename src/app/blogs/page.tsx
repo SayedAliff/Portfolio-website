@@ -1,12 +1,11 @@
-
+// src/app/blogs/page.tsx (Final Unused Index Fix)
 
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-
+// Removed 'fadeIn' as it was unused
 import { fadeInUp, staggerContainer } from '@/utils/animations'; 
 import { FaCalendar, FaTag } from 'react-icons/fa';
-import React from 'react';
 
 // Dummy Data Structure (Add actual data fetching/structure if needed)
 const blogs = [
@@ -46,13 +45,14 @@ export default function Blogs() {
         initial="initial"
         animate="animate"
       >
-        {blogs.map((blog, index) => (
+        {/* FIX: Removed 'index' from map arguments to fix the ESLint error */}
+        {blogs.map((blog) => ( 
           
           <motion.article
             key={blog.slug}
             className="bg-white dark:bg-dark/50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-shadow"
             variants={fadeInUp} 
-            whileHover={{ scale: 1.03 }} // FIX: Relying on direct whileHover to eliminate transition prop conflict
+            whileHover={{ scale: 1.03 }}
           >
             <div className="p-6">
               <Link href={`/blogs/${blog.slug}`} className="text-xl font-semibold hover:text-primary transition-colors">
