@@ -1,28 +1,24 @@
+// src/app/components/Skills.tsx (Final Clean Code - Ready to be copied)
 
-
- 'use client'
+'use client'
 import { motion } from 'framer-motion'
 import React from 'react'; 
-// FIX: Removed the 5 unused Si icons to satisfy ESLint.
+// Final clean list of Si icons
 import { 
     SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
     SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
-    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, SiDjango, SiNumpy, SiR,
-    SiCashapp,
-    SiPhp,
-    SiPandas
+    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
+    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain, SiPhp, 
+    SiSqlite, SiArduino, SiSharp, SiFastapi 
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
-// ... rest of the code is unchanged
+import { fadeInUp, fadeIn, staggerContainer } from '@/utils/animations' 
 
-// Assuming these imports match your actual animations file location
-import { fadeInUp, fadeIn, staggerContainer, cardHover } from '@/utils/animations' 
-
-// FIX: Using React.ElementType to avoid the 'any' type error
+// Using React.ElementType to avoid the 'any' type error
 const SkillItem = ({ Icon, name }: { Icon: React.ElementType, name: string }) => (
-    <li className="flex items-center gap-3">
-        <Icon className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+    <li className="flex items-center gap-3 text-secondary">
+        <Icon className="h-4 w-4" /> 
         {name}
     </li>
 );
@@ -41,7 +37,6 @@ export default function Skills() {
         Skills & Frameworks
       </motion.h2>
       <motion.div 
-
         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         variants={staggerContainer}
         initial="initial"
@@ -52,7 +47,7 @@ export default function Skills() {
         <motion.div 
           className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md border-t-4 border-fuchsia-500"
           variants={fadeInUp}
-          {...cardHover}
+          whileHover={{ scale: 1.05 }}
         >
           <FaCode className="h-8 w-8 text-fuchsia-500 mb-4" />
           <h3 className="text-xl font-semibold mb-2">Programming Languages</h3>
@@ -70,20 +65,18 @@ export default function Skills() {
         <motion.div 
           className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md border-t-4 border-green-500"
           variants={fadeInUp}
-          {...cardHover}
+          whileHover={{ scale: 1.05 }}
         >
           <FaLaptopCode className="h-8 w-8 text-green-500 mb-4" />
           <h3 className="text-xl font-semibold mb-2">Backend & Frameworks</h3>
           <ul className="text-secondary space-y-2">
-            <li className="list-disc list-inside text-secondary ml-4">C# </li> 
-            <SkillItem Icon={SiCashapp} name="C#" />
+            <SkillItem Icon={SiSharp} name="C# / .NET" /> 
+            <SkillItem Icon={SiFastapi} name="Python | FastAPI" />
             <SkillItem Icon={SiNodedotjs} name="Node.js" />
             <SkillItem Icon={SiExpress} name="Express.js" />
-            
             <SkillItem Icon={SiPhp} name="PHP" />
             <SkillItem Icon={SiDjango} name="Django REST Framework" />
             <li className="list-disc list-inside text-secondary ml-4">Postman / REST API</li>
-            <SkillItem Icon={SiPython} name="Pythone | FastAPI" />
           </ul>
         </motion.div>
         
@@ -91,7 +84,7 @@ export default function Skills() {
         <motion.div 
           className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md border-t-4 border-blue-500"
           variants={fadeInUp}
-          {...cardHover}
+          whileHover={{ scale: 1.05 }}
         >
           <FaDatabase className="h-8 w-8 text-blue-500 mb-4" />
           <h3 className="text-xl font-semibold mb-2">Databases & SQL</h3>
@@ -100,7 +93,7 @@ export default function Skills() {
             <SkillItem Icon={SiMysql} name="MySQL" />
             <SkillItem Icon={SiOracle} name="Oracle SQL" />
             <SkillItem Icon={SiMongodb} name="MongoDB" />
-            <li className="list-disc list-inside text-secondary ml-4">SQLite3</li>
+            <SkillItem Icon={SiSqlite} name="SQLite3" />
           </ul>
         </motion.div>
         
@@ -108,7 +101,7 @@ export default function Skills() {
         <motion.div 
           className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md border-t-4 border-pink-500"
           variants={fadeInUp}
-          {...cardHover}
+          whileHover={{ scale: 1.05 }}
         >
           <FaReact className="h-8 w-8 text-pink-500 mb-4" />
           <h3 className="text-xl font-semibold mb-2">Frontend & UI/UX</h3>
@@ -126,14 +119,14 @@ export default function Skills() {
         <motion.div 
           className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md border-t-4 border-cyan-500"
           variants={fadeInUp}
-          {...cardHover}
+          whileHover={{ scale: 1.05 }}
         >
           <FaCloud className="h-8 w-8 text-cyan-500 mb-4" />
           <h3 className="text-xl font-semibold mb-2">DevOps, Cloud & Tools</h3>
           <ul className="text-secondary space-y-2">
             <SkillItem Icon={SiLinux} name="Linux" />
             <SkillItem Icon={SiGit} name="Git" />
-            <SkillItem Icon={SiGithubactions} name="GitHub Actions (CI/CD)" />
+            <li className="list-disc list-inside text-secondary ml-4">GitHub Actions (CI/CD)</li>
             <SkillItem Icon={SiDocker} name="Docker" />
             <SkillItem Icon={SiNginx} name="Nginx" />
             <SkillItem Icon={SiOracle} name="Oracle Cloud" />
@@ -144,17 +137,16 @@ export default function Skills() {
         <motion.div 
           className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md border-t-4 border-orange-500"
           variants={fadeInUp}
-          {...cardHover}
+          whileHover={{ scale: 1.05 }}
         >
           <FaChartLine className="h-8 w-8 text-orange-500 mb-4" />
           <h3 className="text-xl font-semibold mb-2">Data Science & Embedded</h3>
           <ul className="text-secondary space-y-2">
             <SkillItem Icon={SiNumpy} name="Numpy" />
             <SkillItem Icon={SiPandas} name="Pandas" />
-            <li className="list-disc list-inside text-secondary ml-4">Matplotlib / OpenCV</li>
-           
-            <li className="list-disc list-inside text-secondary ml-4">Scikit-learn / Langchain</li>
-            <li className="list-disc list-inside text-secondary ml-4">Arduino / Raspberry Pi (Embedded)</li>
+            <li className="list-disc list-inside text-secondary ml-4">Matplotlib / Scikit-learn / Langchain</li>
+            <SkillItem Icon={SiOpencv} name="OpenCV" />
+            <SkillItem Icon={SiArduino} name="Arduino / Raspberry Pi (Embedded)" />
           </ul>
         </motion.div>
         

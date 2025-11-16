@@ -1,4 +1,4 @@
-
+// src/app/contact/page.tsx (Final Clean Code)
 
 'use client'
 
@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser' 
+// FIX: Cleaned up the import line to only contain necessary, now defined exports
 import { fadeInUp, fadeIn, slideInLeft, slideInRight } from '@/utils/animations' 
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
@@ -17,7 +18,6 @@ export default function Contact() {
     e.preventDefault();
     setStatus('loading');
 
-    // EmailJS Keys from .env.local
     const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
     const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
@@ -26,16 +26,14 @@ export default function Contact() {
       .sendForm(
         serviceID,
         templateID,
-        e.currentTarget as HTMLFormElement, // Safely pass the form element
+        e.currentTarget as HTMLFormElement, 
         publicKey
       )
       .then(
-        // Success Callback
         () => {
           setStatus('success');
-          (e.currentTarget as HTMLFormElement).reset(); // Reset form on success
+          (e.currentTarget as HTMLFormElement).reset(); 
         },
-        // Error Callback (Typed as unknown to resolve TypeScript error)
         (error: unknown) => { 
           console.error("EmailJS Failed:", error);
           setStatus('error');
@@ -54,7 +52,7 @@ export default function Contact() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         
         {/* Contact Information */}
-        <motion.div className="space-y-8" {...slideInLeft}>
+        <motion.div className="space-y-8" {...slideInLeft}> {/* ✅ Uses slideInLeft */}
           <motion.div {...fadeInUp}>
             <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
             <p className="text-secondary">
@@ -70,7 +68,7 @@ export default function Contact() {
               <div>
                 <h3 className="font-semibold">Email</h3>
                 <a href="mailto:20-43489-1@student.aiub.edu" className="text-secondary hover:text-primary">
-                 sayed.alif2002@gmail.com
+                 20-43489-1@student.aiub.edu
                 </a>
               </div>
             </motion.div>
@@ -98,13 +96,13 @@ export default function Contact() {
         </motion.div>
         
         {/* Contact Form */}
-        <motion.div className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md" {...slideInRight}>
+        <motion.div className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md" {...slideInRight}> {/* ✅ Uses slideInRight */}
           <motion.form onSubmit={sendEmail} className="space-y-6" variants={fadeIn} initial="initial" animate="animate">
             
             {/* Name Input */}
             <motion.div variants={fadeInUp}>
               <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-              <input type="text" id="name" name="from_name" // 👈 Template Variable
+              <input type="text" id="name" name="from_name" 
                      required 
                      className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent" />
             </motion.div>
@@ -112,7 +110,7 @@ export default function Contact() {
             {/* Email Input */}
             <motion.div variants={fadeInUp}>
               <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-              <input type="email" id="email" name="from_email" // 👈 Template Variable
+              <input type="email" id="email" name="from_email" 
                      required 
                      className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent" />
             </motion.div>
@@ -120,7 +118,7 @@ export default function Contact() {
             {/* Message Input */}
             <motion.div variants={fadeInUp}>
               <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-              <textarea id="message" name="message" // 👈 Template Variable
+              <textarea id="message" name="message" 
                         required rows={4} 
                         className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-transparent" />
             </motion.div>
