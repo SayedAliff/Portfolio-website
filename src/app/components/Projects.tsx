@@ -10,6 +10,7 @@ export default function Projects() {
   return (
     <section className="py-20">
       <div className="container max-w-7xl mx-auto px-4">
+        
         <motion.h2 
           className="text-3xl font-bold mb-12 text-center"
           {...fadeInUp}
@@ -25,11 +26,13 @@ export default function Projects() {
         >
           {projects.map((project) => (
             <motion.article
+
               key={project.title}
               className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6"
               variants={fadeInUp}
-              {...cardHoverSmall}
+              
             >
+              {/* Image */}
               <div className="relative aspect-video mb-4 rounded-lg overflow-hidden">
                 <Image
                   src={project.image}
@@ -39,26 +42,29 @@ export default function Projects() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
+
+              {/* Title */}
               <motion.h3 
                 className="text-xl font-semibold mb-2"
                 whileHover={{ x: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
+              > 
                 {project.title}
               </motion.h3>
+
+              {/* Description */}
               <motion.p 
                 className="text-gray-600 dark:text-gray-300 mb-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
+              > 
                 {project.description}
               </motion.p>
+
+              {/* Tech List */}
               <motion.div 
                 className="flex flex-wrap gap-2 mb-4"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
+                animate={{ opacity: 1 }} 
               >
                 {project.technologies.map((tech) => (
                   <motion.span
@@ -71,12 +77,13 @@ export default function Projects() {
                   </motion.span>
                 ))}
               </motion.div>
+
+              {/* Buttons */}
               <motion.div 
                 className="flex gap-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-              >
+              > 
                 <motion.a
                   href={project.githubLink}
                   target="_blank"
@@ -88,6 +95,7 @@ export default function Projects() {
                   <FaGithub className="h-5 w-5" />
                   <span>Code</span>
                 </motion.a>
+
                 <motion.a
                   href={project.demoLink}
                   target="_blank"
@@ -100,10 +108,11 @@ export default function Projects() {
                   <span>Live Demo</span>
                 </motion.a>
               </motion.div>
+
             </motion.article>
           ))}
         </motion.div>
       </div>
     </section>
   )
-} 
+}
