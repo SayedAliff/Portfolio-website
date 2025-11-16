@@ -3,7 +3,7 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-// Assuming these imports are correctly defined in your animations file
+
 import { fadeInUp, staggerContainer } from '@/utils/animations'; 
 import { FaCalendar, FaTag } from 'react-icons/fa';
 import React from 'react';
