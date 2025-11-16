@@ -1,9 +1,9 @@
-// src/app/components/Skills.tsx (Final Clean Code - Ready to be copied)
+// src/app/components/Skills.tsx (Final Clean Code)
 
 'use client'
 import { motion } from 'framer-motion'
 import React from 'react'; 
-// Final clean list of Si icons
+// All necessary icons are imported here
 import { 
     SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
     SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
@@ -13,9 +13,10 @@ import {
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
+// Importing necessary animation utilities
 import { fadeInUp, fadeIn, staggerContainer } from '@/utils/animations' 
 
-// Using React.ElementType to avoid the 'any' type error
+// Helper function to render a list item with its corresponding Simple Icon
 const SkillItem = ({ Icon, name }: { Icon: React.ElementType, name: string }) => (
     <li className="flex items-center gap-3 text-secondary">
         <Icon className="h-4 w-4" /> 
@@ -144,6 +145,7 @@ export default function Skills() {
           <ul className="text-secondary space-y-2">
             <SkillItem Icon={SiNumpy} name="Numpy" />
             <SkillItem Icon={SiPandas} name="Pandas" />
+            {/* Final Clean List Items */}
             <li className="list-disc list-inside text-secondary ml-4">Matplotlib / Scikit-learn / Langchain</li>
             <SkillItem Icon={SiOpencv} name="OpenCV" />
             <SkillItem Icon={SiArduino} name="Arduino / Raspberry Pi (Embedded)" />

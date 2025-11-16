@@ -1,4 +1,4 @@
-// src/app/components/Projects.tsx (Final Code with Type Conflict Fix)
+
 
 'use client'
 import { projects } from '@/contents/projects' // Assuming this file exists and exports 'projects'

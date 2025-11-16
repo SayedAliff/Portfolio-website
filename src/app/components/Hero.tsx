@@ -1,7 +1,7 @@
-// src/app/components/Hero.tsx (Final Error-Free Code)
+// src/app/components/Hero.tsx (Final Unused Import Fix)
 
 'use client'; 
-import Image from 'next/image'; 
+// Removed 'Image' import as it was unused in the current JSX structure
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
@@ -28,7 +28,7 @@ export default function Hero() {
         
         {/* Profile Picture using scaleIn variant */}
         <motion.div 
-            variants={scaleIn} // Uses the clean variant definition
+            variants={scaleIn}
             initial="initial"
             animate="animate"
             className="mb-4 mx-auto"
