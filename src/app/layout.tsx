@@ -1,5 +1,3 @@
-// src/app/layout.tsx
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -7,8 +5,11 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// 1. IMPORT the SpeedInsights component
+// 1. IMPORT the SpeedInsights component (Existing)
 import { SpeedInsights } from "@vercel/speed-insights/next"
+
+// 2. IMPORT the Analytics component (New)
+import { Analytics } from '@vercel/analytics/react';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,7 +43,11 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
         
+        {/* 3. Speed Insights Component (Existing) */}
         <SpeedInsights />
+        
+        {/* 4. Web Analytics Component (NEW) */}
+        <Analytics />
       </body>
     </html>
   );
