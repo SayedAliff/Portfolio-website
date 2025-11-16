@@ -3,21 +3,30 @@
 'use client'; 
 import Image from 'next/image'; 
 import Link from 'next/link';
-import { motion, Variants } from 'framer-motion'; // Import Variants for strict typing
+import { motion, Variants } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import { fadeInUp, scaleIn } from '@/utils/animations'; 
-// Import necessary icons for the bottom row
-import { SiDocker, SiLinux, SiPython, SiGit, SiFramer, SiTypescript } from 'react-icons/si'; 
+import { fadeInUp, scaleIn, staggerContainer } from '@/utils/animations'; // Add staggerContainer import
+// Importing ALL necessary Si icons for the cloud
+import { 
+    SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
+    SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
+    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
+    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain, SiPhp, 
+    SiSqlite, SiArduino, SiSharp,SiFastapi 
+} from 'react-icons/si'
+// Import FaIcons only if necessary (FaChartLine, FaCloud, etc.)
+import { FaChartLine, FaCloud, FaLaptopCode, FaDatabase, FaReact } from 'react-icons/fa' 
 
-// Custom component to render the icon row - ADDED HREFS
-const TechIcons = [
-    { icon: SiDocker, name: 'Docker', href: 'https://www.docker.com/' },
-    { icon: SiLinux, name: 'Linux', href: 'https://www.linux.org/' },
-    { icon: SiGit, name: 'Git', href: 'https://git-scm.com/' },
-    { icon: SiPython, name: 'Python', href: 'https://www.python.org/' },
-    { icon: SiFramer, name: 'Framer Motion', href: 'https.framer.com/motion/' },
-    { icon: SiTypescript, name: 'TypeScript', href: 'https://www.typescriptlang.org/' },
+
+// Custom component to render the icon row
+const TechIconComponents = [
+    SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
+    SiNodedotjs, SiExpress, SiGit, SiGithubactions, SiDocker, SiNginx, SiReact, 
+    SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
+    SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiScikitlearn, SiLangchain, SiPhp, 
+    SiSqlite, SiArduino, SiSharp, SiFastapi
 ];
+
 
 export default function Hero() {
   
@@ -34,7 +43,7 @@ export default function Hero() {
     delaySpeed: 1500,
   });
 
-  // Final colorCycle variant structure (Fixes Type Conflict)
+
   const colorCycle: Variants = { 
     initial: { color: "#ffffff" }, 
     animate: {
@@ -98,29 +107,27 @@ export default function Hero() {
             Full Stack Developer | UI/UX Enthusiast | Open Source Contributor
         </p>
         
-        {/* 👇 NEW: Clickable Animated Technology Icon Row */}
+        {/* 👇 FINAL ICON CLOUD: Large, Purple/Pink Icons */}
         <motion.div 
-            className="flex justify-center space-x-6 py-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            className="flex flex-wrap justify-center items-center gap-6 py-8 px-4 max-w-4xl mx-auto"
+            variants={staggerContainer} // Use stagger for entrance effect
+            initial="initial"
+            animate="animate"
         >
-            {TechIcons.map((tech, index) => (
-                <motion.a // 👈 Changed to motion.a for linking
+            {TechIconComponents.map((Icon, index) => (
+                <motion.a 
                     key={index}
-                    href={tech.href} // Use the specific URL
+                    // Apply the vibrant purple/pink monochrome color and large size
+                    className="text-purple-500 opacity-80 hover:opacity-100 transition-opacity" 
+                    href="#" // Placeholder link
                     target="_blank"
-                    rel="noopener noreferrer"
-                    // Apply a glowing, monochrome purple/pink style
-                    className="text-purple-400 opacity-80 hover:opacity-100 transition-opacity" 
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    transition={{ type: 'spring', stiffness: 300 }}
+                    variants={fadeInUp} // Use fadeInUp for staggered entrance
                 >
-                    <tech.icon className="h-8 w-8 md:h-10 md:w-10" />
+                    <Icon className="h-10 w-10 md:h-12 md:w-12" />
                 </motion.a>
             ))}
         </motion.div>
-        {/* 👆 END NEW ICON ROW */}
+        {/* 👆 END ICON CLOUD */}
 
         <motion.div className="flex justify-center space-x-4 mt-4">
             <Link href="#contact" className="btn btn-primary">Get In Touch</Link>

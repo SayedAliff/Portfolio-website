@@ -9,7 +9,7 @@ import {
     SiNodedotjs, SiExpress, SiGit, SiDocker, SiNginx, SiReact, 
     SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
     SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiPhp, 
-    SiSqlite, SiArduino, SiSharp, SiFastapi 
+    SiSqlite, SiArduino, SiSharp, SiFastapi, SiGithub, SiRaspberrypi
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
@@ -127,7 +127,8 @@ export default function Skills() {
           <ul className="text-secondary space-y-2">
             <SkillItem Icon={SiLinux} name="Linux" />
             <SkillItem Icon={SiGit} name="Git" />
-            <li className="list-disc list-inside text-secondary ml-4">GitHub Actions (CI/CD)</li>
+            <SkillItem Icon={SiGithub} name="GitHub Actions (CI/CD)" />
+            
             <SkillItem Icon={SiDocker} name="Docker" />
             <SkillItem Icon={SiNginx} name="Nginx" />
             <SkillItem Icon={SiOracle} name="Oracle Cloud" />
@@ -148,7 +149,8 @@ export default function Skills() {
             {/* Final Clean List Items */}
             <li className="list-disc list-inside text-secondary ml-4">Matplotlib / Scikit-learn / Langchain</li>
             <SkillItem Icon={SiOpencv} name="OpenCV" />
-            <SkillItem Icon={SiArduino} name="Arduino / Raspberry Pi (Embedded)" />
+            <SkillItem Icon={SiArduino} name="Arduino" />
+            <SkillItem Icon={SiRaspberrypi} name="Raspberry Pi" />
           </ul>
         </motion.div>
         
