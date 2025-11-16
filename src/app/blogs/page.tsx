@@ -1,63 +1,87 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerContainer } from '@/utils/animations';
+import { FaCalendar, FaTag } from 'react-icons/fa';
 
-interface BlogPost {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-}
+// Dummy Data
+const blogs = [
+  { 
+    slug: 'post-1', 
+    title: 'How to Optimize Next.js for Performance', 
+    date: 'March 21, 2025', 
+    tags: ['Next.js', 'Vercel', 'Performance'],
+    excerpt: 'A deep dive into server components and caching strategies...',
+  },
+  { 
+    slug: 'post-2', 
+    title: 'Mastering Backend Development with C#', 
+    date: 'April 5, 2025', 
+    tags: ['C#', '.NET', 'Backend'],
+    excerpt: 'Exploring asynchronous programming and entity framework in C#...',
+  },
+];
 
-export default function BlogsPage() {
-  const [blogs, setBlogs] = useState<BlogPost[]>([]);
-
-  useEffect(() => {
-    async function fetchBlogs() {
-      try {
-        const res = await fetch("/api/blogs");
-        const data = await res.json();
-        setBlogs(data.blogs || []);
-      } catch (err) {
-        console.error("Error loading blogs", err);
-      }
-    }
-    fetchBlogs();
-  }, []);
-
+export default function Blogs() {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
-      <h1 className="text-4xl font-bold mb-8 text-center">Blogs</h1>
+    <div className="container max-w-7xl mx-auto py-12">
+      <motion.h1 
+        className="text-4xl font-bold mb-8 text-center"
+        {...fadeInUp}
+      >
+        Blogs
+      </motion.h1>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <p className="text-lg text-secondary max-w-3xl mx-auto text-center mb-16">
+        Insights, tutorials, and stories from my journey as a developer.
+      </p>
+
+      <motion.div 
+        className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        variants={staggerContainer}
+        initial="initial"
+        animate="animate"
+      >
         {blogs.map((blog) => (
           <motion.article
             key={blog.slug}
-            
+            className="bg-white dark:bg-dark/50 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-shadow"
+            variants={fadeInUp}
             whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.3 }}
-            className="bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden p-6 border border-gray-200 dark:border-gray-700"
           >
-            <h2 className="text-2xl font-semibold mb-2">{blog.title}</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">{blog.description}</p>
+            <div className="p-6">
+              <Link 
+                href={`/blogs/${blog.slug}`}
+                className="text-xl font-semibold hover:text-primary transition-colors"
+              >
+                {blog.title}
+              </Link>
 
-            <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-4">
-              <span>{blog.date}</span>
-              <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">{blog.category}</span>
+              <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400 mt-2 mb-4">
+                <span className="flex items-center gap-1">
+                  <FaCalendar className="h-3 w-3" /> {blog.date}
+                </span>
+              </div>
+
+              <p className="text-secondary mb-4 line-clamp-3">
+                {blog.excerpt}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {blog.tags.map(tag => (
+                  <span 
+                    key={tag} 
+                    className="flex items-center gap-1 text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full"
+                  >
+                    <FaTag className="h-3 w-3" /> {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-
-            <Link
-              href={`/blogs/${blog.slug}`}
-              className="text-blue-600 dark:text-blue-400 font-semibold hover:underline"
-            >
-              Read More →
-            </Link>
           </motion.article>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
