@@ -1,4 +1,4 @@
-// src/utils/animations.ts (FINAL COMPREHENSIVE VARIANTS)
+
 
 export const fadeInUp = {
   initial: { opacity: 0, y: 20 },

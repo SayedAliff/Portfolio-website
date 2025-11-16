@@ -1,7 +1,6 @@
-// src/app/components/Hero.tsx (Final Unused Import Fix)
+
 
 'use client'; 
-// Removed 'Image' import as it was unused in the current JSX structure
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
@@ -22,6 +21,19 @@ export default function Hero() {
     delaySpeed: 1500,
   });
 
+  // FIX: Merged transition into the animate property of the variant (Resolves Type Conflict)
+  const colorCycle = {
+    initial: {}, 
+    animate: {
+        color: ["#ff0000", "#ff7b00", "#00ff3c", "#0055ff", "#c800ff", "#ff0000"], 
+        transition: { // 👈 FIX: Transition is now defined inside the animate block
+            duration: 5,
+            ease: "easeInOut",
+            repeat: Infinity,
+        }
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen pt-24 pb-12 flex flex-col items-center justify-center">
       <div className="text-center max-w-4xl">
@@ -36,20 +48,29 @@ export default function Hero() {
             <div className="h-40 w-40 rounded-full bg-gray-500 mx-auto" />
         </motion.div>
 
+        {/* Colorize Full Name (Gradient Effect) */}
         <motion.h1 
-            className="text-5xl md:text-6xl font-bold mb-4"
+            className="text-5xl md:text-6xl font-bold mb-4 
+                       bg-clip-text text-transparent bg-gradient-to-r 
+                       from-pink-500 via-purple-500 to-indigo-500" 
             {...fadeInUp}
         >
           Hello, I&apos;m Sayed Nafisur Rahman Alif
         </motion.h1>
         
-        {/* Dynamic Typewriter Text */}
+        {/* Dynamic Typewriter Text with RGB Cycling Effect */}
         <motion.h2 className="text-3xl font-bold mb-6" {...fadeInUp}>
-          <span className="text-blue-500">I&apos;m a </span>
+          <span className="text-white">I&apos;m a </span>
           
-          <span className="text-blue-500">
+          {/* Apply the colorCycle variant here */}
+          <motion.span 
+              variants={scaleIn} // Changed from 'variant' to 'variants'
+              initial="initial"
+              animate="animate"
+              // The transition is now inside the colorCycle variant definition (Line 31)
+          >
             {text}
-          </span>
+          </motion.span>
           <Cursor cursorStyle='|' />
         </motion.h2>
 
