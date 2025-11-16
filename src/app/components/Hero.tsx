@@ -1,6 +1,7 @@
 
 
 'use client'; 
+import Image from 'next/image'; 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
@@ -21,14 +22,13 @@ export default function Hero() {
     delaySpeed: 1500,
   });
 
-  // FINAL FIX: Removed the conflicting 'ease' string from the transition object.
+  // Final colorCycle variant structure (Fixes Type Conflict)
   const colorCycle = {
     initial: { color: "#ffffff" }, 
     animate: {
         color: ["#ff0000", "#ff7b00", "#00ff3c", "#0055ff", "#c800ff", "#ff0000"], 
         transition: { 
             duration: 5,
-            // ❌ Removed: ease: "easeInOut", 👈 This was the final source of the type error
             repeat: Infinity,
         }
     }
@@ -38,14 +38,22 @@ export default function Hero() {
     <section id="home" className="min-h-screen pt-24 pb-12 flex flex-col items-center justify-center">
       <div className="text-center max-w-4xl">
         
-        {/* Profile Picture using scaleIn variant */}
+        {/* Profile Picture using scaleIn variant - NOW SHOWING IMAGE */}
         <motion.div 
             variants={scaleIn}
             initial="initial"
             animate="animate"
             className="mb-4 mx-auto"
         >
-            <div className="h-40 w-40 rounded-full bg-gray-500 mx-auto" />
+            {/* 👈 FIX: Replaced placeholder div with the Image component */}
+            <Image 
+                src="/profile.avif" // Assuming the image is at /public/profile.avif
+                alt="Sayed Nafisur Rahman Alif" 
+                width={160} 
+                height={160} 
+                className="rounded-full object-cover mx-auto shadow-xl" 
+                priority 
+            />
         </motion.div>
 
         {/* Colorize Full Name (Gradient Effect) */}
