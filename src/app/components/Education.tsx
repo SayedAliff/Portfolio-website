@@ -33,7 +33,7 @@ const educationData = [
     // User's School Entry (SSC)
     institution: "Oxford Foundation English School",
     degree: "School",
-    details: "Science Group",
+    
     duration: "2003 - 2006", // Adjusted timeline for SSC
     link: "https://www.facebook.com/profile.php?id=100063921215469", 
   },
