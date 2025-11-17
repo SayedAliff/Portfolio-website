@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { motion, Variants, useAnimation } from 'framer-motion'; 
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import { fadeInUp, scaleIn } from '@/utils/animations'; 
+import { fadeInUp } from '@/utils/animations'; 
 // Import necessary icons
 import { SiDocker, SiLinux, SiPython, SiGit, SiFramer, SiTypescript, SiJavascript, SiMysql, SiMongodb, SiReact, SiFastapi, SiArduino, SiPhp, SiNodedotjs, SiMacos } from 'react-icons/si'; 
 import React, { useCallback } from 'react'; // 👈 Import useCallback and React
@@ -156,7 +156,7 @@ export default function Hero() {
             View Resume
           </Link>
         </motion.div>
-        
+
       </div>
     </section>
   );
