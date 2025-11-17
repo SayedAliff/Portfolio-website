@@ -2,7 +2,7 @@
 'use client'
 import { motion } from 'framer-motion'
 // Ensure you import all necessary animations
-import { fadeInUp, fadeInDown, fadeIn } from '@/utils/animations' 
+import { fadeInUp, fadeInDown, fadeIn, staggerContainer } from '@/utils/animations' 
 
 export default function AboutPage() {
   return (
@@ -14,10 +14,10 @@ export default function AboutPage() {
         About Me
       </motion.h1>
       
-      {/* Bio Section - This section will fade in smoothly, and the text will enter staggered */}
+      {/* Bio Section - This section uses staggerContainer to animate children (<p> tags) */}
       <motion.section 
         className="mb-16"
-        variants={fadeIn} // Use fadeIn on the section container
+        variants={staggerContainer} // Use staggerContainer on the parent section
         initial="initial"
         animate="animate"
       >
@@ -25,8 +25,7 @@ export default function AboutPage() {
         {/* Paragraph 1: Core Identity and Expertise */}
         <motion.p 
             className="text-lg text-secondary max-w-3xl mx-auto text-center"
-            variants={fadeInUp} // Apply fadeInUp to the first block
-            transition={{ delay: 0.2 }}
+            variants={fadeInUp} // Each child uses fadeInUp
         >
           I&apos;m a highly focused Backend Developer with a deep passion for building robust and scalable applications. My expertise is primarily anchored in backend systems, encompassing languages like C# and Python, with a strong command over traditional web development environments like PHP.
         </motion.p>
@@ -34,8 +33,7 @@ export default function AboutPage() {
         {/* Paragraph 2: Approach and Motivation */}
         <motion.p 
             className="text-lg text-secondary max-w-3xl mx-auto text-center mt-4"
-            variants={fadeInUp} // Apply fadeInUp to the second block
-            transition={{ delay: 0.4 }} // Staggered delay
+            variants={fadeInUp} // Each child uses fadeInUp
         >
           My approach is centered on transforming concepts into reliable, production-ready systems that prioritize performance, security, and maintainability. I value leveraging my diverse skill set in Backend Development and Web Development to deliver end-to-end solutions.
         </motion.p>
@@ -43,8 +41,7 @@ export default function AboutPage() {
         {/* Paragraph 3: Closing Statement (More prominent) */}
         <motion.p 
             className="text-lg font-semibold max-w-3xl mx-auto text-center mt-4"
-            variants={fadeInUp} // Apply fadeInUp to the final block
-            transition={{ delay: 0.6 }} // Final staggered delay
+            variants={fadeInUp} // Each child uses fadeInUp
         >
           I&apos;m always exploring new technologies and expanding my knowledge, driven by the continuous challenge of building better systems and collaboration within the tech community.
         </motion.p>
