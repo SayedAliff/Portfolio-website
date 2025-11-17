@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer } from '@/utils/animations' 
-import { SiPython, SiDjango, SiTypescript } from 'react-icons/si'; // Example icon imports
+
 
 
 export default function Projects() {
