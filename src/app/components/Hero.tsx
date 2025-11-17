@@ -1,12 +1,12 @@
 
-'use client'; 
-import Image from 'next/image'; 
+'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion, Variants, useAnimation } from 'framer-motion'; // useAnimation added
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import { fadeInUp, scaleIn } from '@/utils/animations'; 
+import { fadeInUp, scaleIn } from '@/utils/animations';
 // Import necessary icons
-import { SiDocker, SiLinux, SiPython, SiGit, SiFramer, SiTypescript, SiJavascript, SiMysql, SiMongodb, SiReact, SiFastapi, SiArduino, SiPhp, SiNodedotjs, SiMacos } from 'react-icons/si'; 
+import { SiDocker, SiLinux, SiPython, SiGit, SiFramer, SiTypescript, SiJavascript, SiMysql, SiMongodb, SiReact, SiFastapi, SiArduino, SiPhp, SiNodedotjs, SiMacos } from 'react-icons/si';
 import React from 'react'; // React imported for useEffect/useAnimation
 
 // Custom component to render the icon row - ADDED HREFS
@@ -47,10 +47,10 @@ const [text] = useTypewriter({
  delaySpeed: 1500,
 });
 
-const colorCycle: Variants = { 
- initial: { color: "#ffffff" }, 
+const colorCycle: Variants = {
+ initial: { color: "#ffffff" },
  animate: {
- color: ["#ff0000", "#ff7b00", "#00ff3c", "#0055ff", "#c800ff", "#ff0000"], 
+ color: ["#ff0000", "#ff7b00", "#00ff3c", "#0055ff", "#c800ff", "#ff0000"],
  transition: {
  duration: 5,
 repeat: Infinity,
@@ -158,7 +158,7 @@ onMouseLeave={startScroll}
  href={tech.href}
 target="_blank"
 rel="noopener noreferrer"
-className="opacity-80 hover:opacity-100 transition-opacity flex-shrink-0 mx-6" 
+className="opacity-80 hover:opacity-100 transition-opacity flex-shrink-0 mx-6"
  whileHover={{ scale: 1.1, y: -5 }}
 transition={{ type: 'spring', stiffness: 300 }}
  >
