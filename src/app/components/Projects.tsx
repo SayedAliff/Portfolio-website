@@ -1,15 +1,17 @@
-
+// src/app/components/Projects.tsx (Final Code with Glowing Border Style)
 
 'use client'
 import { projects } from '@/contents/projects' // Assuming this file exists and exports 'projects'
 import Image from 'next/image'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
-import { fadeInUp, staggerContainer } from '@/utils/animations' // Assuming these are correctly exported
+import { fadeInUp, staggerContainer } from '@/utils/animations' 
+import { SiPython, SiDjango, SiTypescript } from 'react-icons/si'; // Example icon imports
+
 
 export default function Projects() {
   return (
-    <section className="py-20">
+    <section id="projects" className="py-20">
       <div className="container max-w-7xl mx-auto px-4">
         <motion.h2
           className="text-3xl font-bold mb-12 text-center"
@@ -18,7 +20,8 @@ export default function Projects() {
           Featured Projects
         </motion.h2>
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          // Grid layout kept at md:grid-cols-3 for responsiveness
+          className="grid grid-cols-1 md:grid-cols-3 gap-8" 
           variants={staggerContainer}
           initial="initial"
           animate="animate"
@@ -26,9 +29,10 @@ export default function Projects() {
           {projects.map((project) => (
             <motion.article
               key={project.title}
-              className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6"
+              // 🛠️ FIX: Added glowing border and customized background
+              className="bg-dark/50 rounded-2xl shadow-lg border border-purple-600/30 p-6 
+                         overflow-hidden hover:shadow-purple-500/50 hover:shadow-xl transition-shadow duration-300" 
               variants={fadeInUp}
-              // FIX: Removed {...cardHoverSmall} and replaced with direct whileHover
               whileHover={{ scale: 1.03 }} 
             >
               <div className="relative aspect-video mb-4 rounded-lg overflow-hidden">
@@ -48,7 +52,7 @@ export default function Projects() {
                 {project.title}
               </motion.h3>
               <motion.p
-                className="text-gray-600 dark:text-gray-300 mb-4"
+                className="text-gray-400 dark:text-gray-300 mb-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -61,10 +65,12 @@ export default function Projects() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
+                {/* Technology Tags (using existing clean style) */}
                 {project.technologies.map((tech) => (
                   <motion.span
                     key={tech}
-                    className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                    // Style matches the aesthetic: Dark background, vibrant text
+                    className="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-sm" 
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
