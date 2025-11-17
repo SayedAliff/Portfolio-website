@@ -1,4 +1,4 @@
-// src/app/components/Projects.tsx (Final Code with Glowing Border Style)
+
 
 'use client'
 import { projects } from '@/contents/projects' // Assuming this file exists and exports 'projects'
@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer } from '@/utils/animations' 
-
+// Assuming all imports are correctly available
 
 
 export default function Projects() {
@@ -35,12 +35,14 @@ export default function Projects() {
               variants={fadeInUp}
               whileHover={{ scale: 1.03 }} 
             >
-              <div className="relative aspect-video mb-4 rounded-lg overflow-hidden">
+              {/* 👇 FIX: Image Aspect Ratio and Object Fit */}
+              <div className="relative h-48 p-2 mb-4 rounded-lg overflow-hidden border border-gray-700/50"> 
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  // Changed object-cover to object-contain to show the entire GUI window
+                  className="object-contain" 
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>
@@ -65,7 +67,7 @@ export default function Projects() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                {/* Technology Tags (using existing clean style) */}
+                {/* Technology Tags */}
                 {project.technologies.map((tech) => (
                   <motion.span
                     key={tech}
