@@ -2,7 +2,7 @@
 'use client'
 import { motion } from 'framer-motion'
 // Ensure you import all necessary animations
-import { fadeInUp, fadeInDown, fadeIn, staggerContainer } from '@/utils/animations' 
+import { fadeInUp, fadeInDown, staggerContainer } from '@/utils/animations' 
 
 export default function AboutPage() {
   return (
