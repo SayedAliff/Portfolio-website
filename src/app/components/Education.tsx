@@ -17,7 +17,7 @@ const educationData = [
    // User's College Entry (HSC)
     institution: "Milestone College ",
     degree: "Higher Secondary School Certificate (HSC)",
-    details: "Science Group",
+    details: "Science ",
     duration: "2017 - 2019",
     link: "https://www.milestonecollege.com/", 
   },
@@ -25,16 +25,16 @@ const educationData = [
     // User's School Entry (SSC)
     institution: "Milestone School and College ",
     degree: "Secondary School Certificate (SSC)",
-    details: "Science Group",
-    duration: "2006 - 2017", // Adjusted timeline for SSC
+    details: "Science ",
+    duration: "2007 - 2017", // Adjusted timeline for SSC
     link: "https://www.milestonecollege.edu.bd/", 
   },
     {
     // User's School Entry (SSC)
     institution: "Oxford Foundation English School",
     degree: "School",
-    
-    duration: "2003 - 2006", // Adjusted timeline for SSC
+    details: "Primary Education ",
+    duration: "2005 - 2006", // Adjusted timeline for SSC
     link: "https://www.facebook.com/profile.php?id=100063921215469", 
   },
   
