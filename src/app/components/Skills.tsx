@@ -146,8 +146,6 @@ export default function Skills() {
           <ul className="text-secondary space-y-2">
             <SkillItem Icon={SiNumpy} name="Numpy" />
             <SkillItem Icon={SiPandas} name="Pandas" />
-            {/* Final Clean List Items */}
-            <li className="list-disc list-inside text-secondary ml-4">Matplotlib / Scikit-learn / Langchain</li>
             <SkillItem Icon={SiOpencv} name="OpenCV" />
             <SkillItem Icon={SiArduino} name="Arduino" />
             <SkillItem Icon={SiRaspberrypi} name="Raspberry Pi" />
