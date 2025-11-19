@@ -18,7 +18,8 @@ export default function AboutPage() {
         className="mb-16"
         variants={staggerContainer}
         initial="initial"
-        animate="animate"
+        whileInView="animate"
+        viewport={{ once: true, amount: 0.3 }}
       >
         {/* Paragraph 1 */}
         <motion.p
