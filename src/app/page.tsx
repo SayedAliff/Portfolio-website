@@ -1,5 +1,3 @@
-
-
 // Import components from their respective folders/files:
 import AboutPage from './about/page';
 import Blogs from './blogs/page'; 
@@ -9,58 +7,57 @@ import ContactPage from './contact/page';
 import Hero from './components/Hero'; 
 import Projects from './components/Projects';
 import Skills from './components/Skills'; 
-// NOTE: Experience import removed to resolve the "defined but never used" error.
 import Education from './components/Education'; 
-
+import Certificates from './components/Certificates'; // ✅ NEW IMPORT
 
 export default function Home() {
   return (
     <main>
       
-      {/* 1. Home / Hero Section - ID target: #home */}
+      {/* 1. Home / Hero Section */}
       <section id="home" className="min-h-screen">
           <Hero />
       </section>
 
-      {/* 2. About Section - ID target: #about */}
+      {/* 2. About Section */}
       <section 
           id="about" 
           className="min-h-screen py-8 flex flex-col items-center justify-center">
           <AboutPage /> 
       </section>
 
-      {/* 3. Skills Section - ID target: #skills */}
+      {/* 3. Skills Section */}
       <section 
           id="skills" 
           className="min-h-screen py-8 flex flex-col items-center justify-center">
           <Skills /> 
       </section>
 
-      {/* 4. Experience Section - Hidden for now */}
-      {/* The section JSX is commented out (hidden), and the component import is removed.
-          You can re-add the Experience import and JSX later when needed.
-      */}
-      
-      {/* 5. Education Section - ID target: #education */}
+      {/* 4. Education Section */}
       <section 
           id="education" 
           className="min-h-screen py-8 flex flex-col items-center justify-center">
           <Education />
       </section>
 
-      {/* 6. Projects Section - ID target: #projects */}
+      {/* 5. Projects Section */}
       <section 
           id="projects" 
           className="min-h-screen py-8 flex flex-col items-center justify-center">
           <Projects />
       </section>
+
+      {/* ⭐ 6. Certificates Section — NOW BETWEEN Projects & Blogs */}
+      <section id="certificates">
+          <Certificates />
+      </section>
       
-      {/* 7. Blogs Section - ID target: #blogs */}
+      {/* 7. Blogs Section */}
       <section id="blogs">
           <Blogs />
       </section>
 
-      {/* 8. Contact Section - ID target: #contact */}
+      {/* 8. Contact Section */}
       <section 
           id="contact" 
           className="min-h-screen py-8 flex flex-col items-center justify-center">
