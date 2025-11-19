@@ -25,7 +25,7 @@ export default function AboutPage() {
           className="text-lg text-secondary max-w-3xl mx-auto text-center"
           variants={fadeInUp}
         >
-          I'm a highly focused Backend Developer with a deep passion for building robust and scalable applications. My expertise is primarily anchored in backend systems, encompassing languages like C# and Python, with a strong command over traditional web development environments like PHP.
+          I&apos;m a highly focused Backend Developer with a deep passion for building robust and scalable applications. My expertise is primarily anchored in backend systems, encompassing languages like C# and Python, with a strong command over traditional web development environments like PHP.
         </motion.p>
 
         {/* Paragraph 2 (slightly delayed for better rhythm) */}
@@ -41,9 +41,8 @@ export default function AboutPage() {
           className="text-lg font-semibold max-w-3xl mx-auto text-center mt-4"
           variants={fadeIn}
         >
-          I'm always exploring new technologies and expanding my knowledge, driven by the continuous challenge of building better systems and collaboration within the tech community.
+          I&apos;m always exploring new technologies and expanding my knowledge, driven by the continuous challenge of building better systems and collaboration within the tech community.
         </motion.p>
-        
       </motion.section>
     </div>
   )
