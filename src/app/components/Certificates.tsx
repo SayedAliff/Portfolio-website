@@ -5,30 +5,16 @@ import { motion } from "framer-motion";
 
 const certificates = [
   {
-    title: "Build a Small Simulated Network With Cisco Packet Tracer",
-    issuer: "Coursera",
-    img: "/certificates/coursera-network.png",
-  },
-  {
-    title: "Foundations of Cybersecurity",
-    issuer: "Google",
-    img: "/certificates/google-cybersecurity.png",
-  },
-  {
-    title: "Generative AI: Prompt Engineering Basics",
-    issuer: "IBM",
-    img: "/certificates/ibm.png",
+    title: "JavaScript Algorithms",
+    issuer: "Scrimba",
+    img: "/certificates/scrimba-jsalgo.png",
   },
   {
     title: "Intro to SQL",
     issuer: "Scrimba",
     img: "/certificates/scrimba-sql.png",
   },
-  {
-    title: "Introduction to Networking",
-    issuer: "NVIDIA",
-    img: "/certificates/nvidia-networking.png",
-  },
+  
   {
     title: "Learn Typescript",
     issuer: "Scrimba",
@@ -39,35 +25,10 @@ const certificates = [
     issuer: "Google",
     img: "/certificates/google-productivity.png",
   },
-  {
-    title: "Network Security",
-    issuer: "Cisco",
-    img: "/certificates/cisco-security.png",
-  },
-  {
-    title: "Use AI as a Creative or Expert Partner",
-    issuer: "Google",
-    img: "/certificates/google.png",
-  },
-  {
-    title: "Technical Support Fundamentals",
-    issuer: "Google",
-    img: "/certificates/google-techsupport.png",
-  },
-  {
-    title: "Use of Zoom in Facilitating Online Meeting/Class",
-    issuer: "MuktoPaath",
-    img: "/certificates/muktopaath-zoom.png",
-  },
-  {
+   {
     title: "IT Essentials: PC Hardware and Software",
     issuer: "Cisco Networking Academy",
     img: "/certificates/cisco-it-essentials.png",
-  },
-  {
-    title: "Photography Basics",
-    issuer: "MuktoPaath",
-    img: "/certificates/muktopaath-photography.png",
   },
   {
     title: "Introduction to AI",
@@ -75,10 +36,59 @@ const certificates = [
     img: "/certificates/google-intro-ai.png",
   },
   {
-    title: "JavaScript Algorithms",
-    issuer: "Scrimba",
-    img: "/certificates/scrimba-jsalgo.png",
+    title: "Build a Small Simulated Network With Cisco Packet Tracer",
+    issuer: "Coursera",
+    img: "/certificates/coursera-network.png",
   },
+  {
+    title: "Foundations of Cybersecurity",
+    issuer: "Google",
+    img: "/certificates/google-cybersecurity.png",
+  },
+  {
+    title: "Introduction to Networking",
+    issuer: "NVIDIA",
+    img: "/certificates/nvidia-networking.png",
+  },
+  {
+    title: "Network Security",
+    issuer: "Cisco",
+    img: "/certificates/cisco-security.png",
+  },
+
+  {
+    title: "Technical Support Fundamentals",
+    issuer: "Google",
+    img: "/certificates/google-techsupport.png",
+  },
+
+
+
+  {
+    title: "Generative AI: Prompt Engineering Basics",
+    issuer: "IBM",
+    img: "/certificates/ibm.png",
+  },
+  {
+    title: "Use AI as a Creative or Expert Partner",
+    issuer: "Google",
+    img: "/certificates/google.png",
+  },
+
+  
+  {
+    title: "Use of Zoom in Facilitating Online Meeting/Class",
+    issuer: "MuktoPaath",
+    img: "/certificates/muktopaath-zoom.png",
+  },
+ 
+  {
+    title: "Photography Basics",
+    issuer: "MuktoPaath",
+    img: "/certificates/muktopaath-photography.png",
+  },
+  
+  
 ];
 
 export default function Certificates() {
