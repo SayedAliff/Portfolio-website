@@ -1,11 +1,11 @@
-// src/app/components/Certificates.tsx (Final Code with Green Glow)
+
 
 "use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-// Ensure these variants are imported/available in your environment
-import { fadeInUp, staggerContainer } from '@/utils/animations'; 
+// FIX: Removed unused imports (fadeInUp, staggerContainer) to resolve the ESLint error.
+// import { fadeInUp, staggerContainer } from '@/utils/animations'; 
 
 
 const certificates = [
@@ -19,7 +19,6 @@ const certificates = [
     issuer: "Scrimba",
     img: "/certificates/scrimba-sql.png",
   },
-  // ... (Rest of the certificates data remains unchanged)
   {
     title: "Learn Typescript",
     issuer: "Scrimba",
@@ -97,14 +96,13 @@ export default function Certificates() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             
-            // 🛠️ FIX 1 & 2: Added green glow, custom dark background, and border matching Projects card
+            // 🛠️ Applied custom glow and dark mode style
             className="bg-white dark:bg-dark/50 shadow-lg p-4 rounded-xl 
                        border border-gray-700/50 
                        hover:shadow-green-500/50 hover:shadow-xl transition-shadow duration-300"
           >
             <Image
               src={cert.img}
-              // 🛠️ FIX 3: Adjusted image sizing props for better scaling
               width={600}
               height={400} 
               alt={cert.title}
