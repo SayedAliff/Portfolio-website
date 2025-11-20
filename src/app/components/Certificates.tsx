@@ -17,7 +17,7 @@ const certificates = [
   {
     title: "Generative AI: Prompt Engineering Basics",
     issuer: "IBM",
-    img: "/certificates/ibm-prompt.png",
+    img: "/certificates/ibm.png",
   },
   {
     title: "Intro to SQL",
@@ -47,7 +47,7 @@ const certificates = [
   {
     title: "Use AI as a Creative or Expert Partner",
     issuer: "Google",
-    img: "/certificates/google-ai-partner.png",
+    img: "/certificates/google.png",
   },
   {
     title: "Technical Support Fundamentals",
