@@ -89,7 +89,7 @@ export default function Education() {
           className="text-center mt-12"
       >
           <Link href="/certificates" className="btn btn-primary text-sm px-6 py-2">
-              View All Certificates
+              View my Certificates
           </Link>
       </motion.div>
       
