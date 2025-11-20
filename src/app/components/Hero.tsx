@@ -6,20 +6,19 @@ import { motion, Variants, useAnimation } from 'framer-motion';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import { fadeInUp } from '@/utils/animations'; 
 // Import necessary icons
-import { SiDocker, SiLinux, SiPython, SiGit, SiFramer, SiTypescript, SiJavascript, SiMysql, SiMongodb, SiReact, SiFastapi, SiArduino, SiPhp, SiNodedotjs, SiMacos } from 'react-icons/si'; 
+import { SiPython,SiReactbootstrap ,SiTailwindcss, SiGit, SiOracle,SiFramer, SiTypescript, SiJavascript, SiMysql, SiMongodb, SiReact, SiFastapi, SiArduino, SiPhp, SiNodedotjs, SiMacos, SiCplusplus,  } from 'react-icons/si'; 
 import React, { useCallback } from 'react'; // 👈 Import useCallback and React
 import Image from 'next/image'; 
 
 // Custom component to render the icon row - ADDED HREFS
 const TechIcons = [
-    { icon: SiDocker, name: 'Docker', href: 'https://www.docker.com/' },
-    { icon: SiLinux, name: 'Linux', href: 'https://www.linux.org/' },
+    
+    
     { icon: SiGit, name: 'Git', href: 'https://git-scm.com/' },
     { icon: SiPython, name: 'Python', href: 'https://www.python.org/' },
     { icon: SiFramer, name: 'Framer Motion', href: 'https://www.framer.com/motion/' },
     { icon: SiTypescript, name: 'TypeScript', href: 'https://www.typescriptlang.org/' },
-    { icon: SiJavascript, name: 'JavaScript', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
-    { icon: SiMysql, name: 'MySQL', href: 'https://www.mysql.com/' },
+    
     { icon: SiMongodb, name: 'MongoDB', href: 'https://www.mongodb.com/' },
     { icon: SiReact, name: 'React', href: 'https://reactjs.org/' },
     { icon: SiFastapi, name: 'FastAPI', href: 'https://fastapi.tiangolo.com/' },
@@ -27,7 +26,14 @@ const TechIcons = [
     { icon: SiPhp, name: 'PHP', href: 'https://www.php.net/' },
     { icon: SiNodedotjs, name: 'Node.js', href: 'https://nodejs.org/' },
     { icon: SiMacos, name: 'macOS', href: 'https://www.apple.com/macos/' },
-];
+    { icon: SiJavascript, name: 'JavaScript', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+    { icon: SiMysql, name: 'MySQL', href: 'https://www.mysql.com/' },
+
+    { icon: SiCplusplus, name: 'C++', href: 'https://isocpp.org/' },
+    { icon: SiOracle, name: 'Oracle Cloud', href: 'https://www.oracle.com/cloud/' },
+    { icon: SiTailwindcss, name: 'Tailwind CSS', href: 'https://tailwindcss.com/' },
+    { icon: SiReactbootstrap, name: 'React Bootstrap', href: 'https://react-bootstrap.github.io/' },
+  ];
 
 // Combine the array twice for a seamless loop
 const InfiniteIcons = [...TechIcons, ...TechIcons];

@@ -6,7 +6,7 @@ import React from 'react';
 // All necessary icons are imported here
 import { 
     SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
-    SiNodedotjs, SiExpress, SiGit, SiDocker, SiNginx, SiReact, 
+    SiNodedotjs, SiExpress, SiGit, SiReact, 
     SiNextdotjs, SiTailwindcss, SiAngular, SiFramer, SiShadcnui, SiLinux, SiOracle, 
     SiDjango, SiNumpy, SiPandas, SiR, SiOpencv, SiPhp, 
     SiSqlite, SiArduino, SiSharp, SiFastapi, SiGithub, SiRaspberrypi
@@ -77,7 +77,7 @@ export default function Skills() {
             <SkillItem Icon={SiExpress} name="Express.js" />
             <SkillItem Icon={SiPhp} name="PHP" />
             <SkillItem Icon={SiDjango} name="Django REST Framework" />
-            <li className="list-disc list-inside text-secondary ml-4">Postman / REST API</li>
+            
           </ul>
         </motion.div>
         
@@ -129,8 +129,7 @@ export default function Skills() {
             <SkillItem Icon={SiGit} name="Git" />
             <SkillItem Icon={SiGithub} name="GitHub Actions (CI/CD)" />
             
-            <SkillItem Icon={SiDocker} name="Docker" />
-            <SkillItem Icon={SiNginx} name="Nginx" />
+            
             <SkillItem Icon={SiOracle} name="Oracle Cloud" />
           </ul>
         </motion.div>
