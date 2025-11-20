@@ -61,14 +61,6 @@ const certificates = [
     issuer: "Google",
     img: "/certificates/google-techsupport.png",
   },
-  
-  {
-    title: "Use AI as a Creative or Expert Partner",
-    issuer: "Google",
-    img: "/certificates/google.png",
-  },
-
-  
   {
     title: "Use of Zoom in Facilitating Online Meeting/Class",
     issuer: "MuktoPaath",
