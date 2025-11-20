@@ -114,7 +114,7 @@ export default function Projects() {
                   whileTap={{ scale: 0.95 }}
                 >
                   <FaExternalLinkAlt className="h-5 w-5" />
-                  <span>Live Demo</span>
+                 
                 </motion.a>
               </motion.div>
             </div>
