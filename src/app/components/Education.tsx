@@ -1,10 +1,9 @@
-// src/app/components/Education.tsx (FINAL WITH MAPPED DATA)
 'use client'
 import { motion } from 'framer-motion'
 import { fadeInUp, fadeIn, staggerContainer, cardHoverSmall } from '@/utils/animations'
 import Link from 'next/link';
 
-// Data structure for all educational entries
+// Data structure for all educational entries (Using your confirmed list)
 const educationData = [
   {
     institution: "American International University-Bangladesh",
@@ -14,30 +13,26 @@ const educationData = [
     link: "https://www.aiub.edu/", 
   },
   {
-   // User's College Entry (HSC)
     institution: "Milestone College ",
     degree: "Higher Secondary School Certificate (HSC)",
-    details: "Science ",
+    details: "Science Group",
     duration: "2017 - 2019",
     link: "https://www.milestonecollege.com/", 
   },
   {
-    // User's School Entry (SSC)
     institution: "Milestone School and College ",
     degree: "Secondary School Certificate (SSC)",
-    details: "Science ",
-    duration: "2007 - 2017", // Adjusted timeline for SSC
+    details: "Science Group",
+    duration: "2006 - 2017",
     link: "https://www.milestonecollege.edu.bd/", 
   },
-    {
-    // User's School Entry (SSC)
+  {
     institution: "Oxford Foundation English School",
     degree: "School",
-    details: "Primary Education ",
-    duration: "2005 - 2006", // Adjusted timeline for SSC
+    details: "Science Group",
+    duration: "2003 - 2006",
     link: "https://www.facebook.com/profile.php?id=100063921215469", 
   },
-  
 ];
 
 
@@ -55,7 +50,7 @@ export default function Education() {
         Education
       </motion.h2>
       <motion.div 
-        className="max-w-3xl mx-auto space-y-6" // Added space-y-6 for vertical spacing
+        className="max-w-3xl mx-auto space-y-6"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
@@ -69,7 +64,6 @@ export default function Education() {
               {...cardHoverSmall}
             >
               <h3 className="text-xl font-semibold mb-2">
-                {/* Institution Name (with link) */}
                 <Link href={edu.link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                     {edu.institution}
                 </Link>
@@ -77,9 +71,19 @@ export default function Education() {
               
               <p className="text-primary mb-1">{edu.degree} • {edu.duration}</p>
               
-              <p className="text-secondary">
+              <p className="text-secondary mb-4">
                  {edu.details}
               </p>
+              
+              {/* 👇 FINAL FIX: Add 'View Certificates' button below the last entry (Oxford School) */}
+              {index === educationData.length - 1 && (
+                <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay: 0.8}} className="text-center mt-6">
+                    <Link href="/certificates" className="btn btn-primary text-sm px-6 py-2">
+                        View All Certificates
+                    </Link>
+                </motion.div>
+              )}
+
             </motion.div>
         ))}
       </motion.div>

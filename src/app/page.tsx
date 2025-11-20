@@ -46,11 +46,6 @@ export default function Home() {
           className="min-h-screen py-8 flex flex-col items-center justify-center">
           <Projects />
       </section>
-
-      {/* ⭐ 6. Certificates Section — NOW BETWEEN Projects & Blogs */}
-      <section id="certificates">
-          <Certificates />
-      </section>
       
       {/* 7. Blogs Section */}
       <section id="blogs">
