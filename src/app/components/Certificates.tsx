@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 // Assuming necessary variants are imported from animations.ts
 
+
 const certificates = [
   {
     title: "JavaScript Algorithms",
@@ -16,7 +17,7 @@ const certificates = [
     issuer: "Scrimba",
     img: "/certificates/scrimba-sql.png",
   },
-
+  // ... (Rest of the certificates data remains unchanged)
   {
     title: "Learn Typescript",
     issuer: "Scrimba",
@@ -85,8 +86,8 @@ export default function Certificates() {
         Certificates
       </h2>
 
-      {/* FIX 1: Reduced gap from gap-10 to gap-8 for smaller size */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-6"> 
+      {/* FIX 1: Reduced gap to gap-6 for a slightly smaller footprint */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 px-6"> 
         {certificates.map((cert, index) => (
           <motion.div
             key={index}
@@ -98,15 +99,16 @@ export default function Certificates() {
             // FIX 2: Added Framer Motion whileHover for smooth zoom
             whileHover={{ scale: 1.03 }} 
             
-            // FIX 3: Added green glow and uniform border style (matching Projects card)
+            // Added green glow and uniform dark mode style
             className="bg-white dark:bg-dark/50 shadow-lg p-4 rounded-xl 
                        border border-gray-700/50 
                        hover:shadow-green-500/50 hover:shadow-xl transition-shadow duration-300"
           >
             <Image
               src={cert.img}
-              width={600}
-              height={400} 
+              // FIX 3: Reduced default image resolution for smaller card size
+              width={400} 
+              height={280} 
               alt={cert.title}
               className="rounded-lg w-full h-auto border dark:border-neutral-700"
             />
