@@ -1,12 +1,9 @@
 
-
 "use client";
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-// FIX: Removed unused imports (fadeInUp, staggerContainer) to resolve the ESLint error.
-// import { fadeInUp, staggerContainer } from '@/utils/animations'; 
-
+// Assuming necessary variants are imported from animations.ts
 
 const certificates = [
   {
@@ -19,6 +16,7 @@ const certificates = [
     issuer: "Scrimba",
     img: "/certificates/scrimba-sql.png",
   },
+
   {
     title: "Learn Typescript",
     issuer: "Scrimba",
@@ -87,7 +85,8 @@ export default function Certificates() {
         Certificates
       </h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+      {/* FIX 1: Reduced gap from gap-10 to gap-8 for smaller size */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-6"> 
         {certificates.map((cert, index) => (
           <motion.div
             key={index}
@@ -96,7 +95,10 @@ export default function Certificates() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
             
-            // 🛠️ Applied custom glow and dark mode style
+            // FIX 2: Added Framer Motion whileHover for smooth zoom
+            whileHover={{ scale: 1.03 }} 
+            
+            // FIX 3: Added green glow and uniform border style (matching Projects card)
             className="bg-white dark:bg-dark/50 shadow-lg p-4 rounded-xl 
                        border border-gray-700/50 
                        hover:shadow-green-500/50 hover:shadow-xl transition-shadow duration-300"
