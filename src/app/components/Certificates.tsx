@@ -14,7 +14,7 @@ const certificates = [
     issuer: "Scrimba",
     img: "/certificates/scrimba-sql.png",
   },
-  
+
   {
     title: "Learn Typescript",
     issuer: "Scrimba",
@@ -61,14 +61,7 @@ const certificates = [
     issuer: "Google",
     img: "/certificates/google-techsupport.png",
   },
-
-
-
-  {
-    title: "Generative AI: Prompt Engineering Basics",
-    issuer: "IBM",
-    img: "/certificates/ibm.png",
-  },
+  
   {
     title: "Use AI as a Creative or Expert Partner",
     issuer: "Google",
