@@ -8,7 +8,6 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills'; 
 import Education from './components/Education'; 
-import Certificates from './components/Certificates'; // ✅ NEW IMPORT
 
 export default function Home() {
   return (
