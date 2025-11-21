@@ -118,7 +118,7 @@ export default function Hero() {
         >
           <span className="text-white">I&apos;m a </span>
           <motion.span variants={colorCycle} initial="initial" animate="animate">
-            {text}
+           {text}
           </motion.span>
           <Cursor cursorStyle="|" />
         </motion.h2>
