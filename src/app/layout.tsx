@@ -22,7 +22,6 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  // Assuming the metadata object is configured here
   title: "Sayed Nafisur Rahman Alif",
   description: "A developer portfolio built with Next.js.",
 };

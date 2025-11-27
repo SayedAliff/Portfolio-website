@@ -1,9 +1,7 @@
-// src/app/components/Skills.tsx (Final Clean Code)
-
 'use client'
 import { motion } from 'framer-motion'
 import React from 'react'; 
-// All necessary icons are imported here
+
 import { 
     SiPython, SiTypescript, SiJavascript, SiCplusplus, SiPostgresql, SiMysql, SiMongodb, 
     SiNodedotjs, SiExpress, SiGit, SiReact, 
@@ -13,10 +11,10 @@ import {
 } from 'react-icons/si'
 import { FaCode, FaLaptopCode, FaDatabase, FaReact, FaCloud, FaChartLine, FaJava } from 'react-icons/fa' 
 
-// Importing necessary animation utilities
+
 import { fadeInUp, fadeIn, staggerContainer } from '@/utils/animations' 
 
-// Helper function to render a list item with its corresponding Simple Icon
+
 const SkillItem = ({ Icon, name }: { Icon: React.ElementType, name: string }) => (
     <li className="flex items-center gap-3 text-secondary">
         <Icon className="h-4 w-4" /> 

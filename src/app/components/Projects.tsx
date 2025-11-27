@@ -1,5 +1,4 @@
 
-
 'use client'
 import { projects } from '@/contents/projects' // Assuming this file exists and exports 'projects'
 import Image from 'next/image'

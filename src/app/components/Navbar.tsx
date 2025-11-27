@@ -15,12 +15,10 @@ export default function Navbar() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Menu items using hash links (#) for smooth scrolling
+
   const menuItems = [
     { href: '/', label: 'Home' },
     { href: '#about', label: 'About' },
-    // Experience link is temporarily removed from Navbar
-    // { href: '#experience', label: 'Experience' }, 
     { href: '#skills', label: 'Skills' }, 
     { href: '#projects', label: 'Projects' },
     { href: '#blogs', label: 'Blogs' },

@@ -1,4 +1,3 @@
-// Import components from their respective folders/files:
 import AboutPage from './about/page';
 import Blogs from './blogs/page'; 
 import ContactPage from './contact/page';

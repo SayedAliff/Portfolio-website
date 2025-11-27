@@ -1,4 +1,3 @@
-// src/app/components/Education.tsx (Final Code with External Certificates Button)
 'use client'
 import { motion } from 'framer-motion'
 import { fadeInUp, fadeIn, staggerContainer, cardHoverSmall } from '@/utils/animations'

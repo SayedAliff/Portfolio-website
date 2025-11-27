@@ -17,7 +17,7 @@ const certificates = [
     issuer: "Scrimba",
     img: "/certificates/scrimba-sql.png",
   },
-  // ... (Rest of the certificates data remains unchanged)
+
   {
     title: "Learn Typescript",
     issuer: "Scrimba",

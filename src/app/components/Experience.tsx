@@ -1,7 +1,6 @@
  'use client'
 
 import { motion } from 'framer-motion'
-// FIX: Removed the eslint-disable directive as the build failed on it.
 import { fadeInUp, fadeIn, staggerContainer, cardHoverSmall } from '@/utils/animations'
 
 export default function Experience() {

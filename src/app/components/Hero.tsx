@@ -1,5 +1,3 @@
-// src/app/components/Hero.tsx (FINAL ERROR-FREE CODE)
-
 'use client'; 
 import Link from 'next/link';
 import { motion, Variants, useAnimation } from 'framer-motion'; 
@@ -10,7 +8,6 @@ import { SiPython,SiReactbootstrap ,SiTailwindcss, SiGit, SiOracle,SiFramer, SiT
 import React, { useCallback } from 'react'; // 👈 Import useCallback and React
 import Image from 'next/image'; 
 
-// Custom component to render the icon row - ADDED HREFS
 const TechIcons = [
     
     
@@ -28,14 +25,13 @@ const TechIcons = [
     { icon: SiMacos, name: 'macOS', href: 'https://www.apple.com/macos/' },
     { icon: SiJavascript, name: 'JavaScript', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
     { icon: SiMysql, name: 'MySQL', href: 'https://www.mysql.com/' },
-
     { icon: SiCplusplus, name: 'C++', href: 'https://isocpp.org/' },
     { icon: SiOracle, name: 'Oracle Cloud', href: 'https://www.oracle.com/cloud/' },
     { icon: SiTailwindcss, name: 'Tailwind CSS', href: 'https://tailwindcss.com/' },
     { icon: SiReactbootstrap, name: 'React Bootstrap', href: 'https://react-bootstrap.github.io/' },
   ];
 
-// Combine the array twice for a seamless loop
+
 const InfiniteIcons = [...TechIcons, ...TechIcons];
 
 

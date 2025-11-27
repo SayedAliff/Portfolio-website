@@ -43,7 +43,7 @@ export default function Contact() {
             form.current?.reset();
           },
           (error) => {
-            console.error("❌ EmailJS Failed:", error.text);
+            console.error(" EmailJS Failed:", error.text);
             setStatus('error');
           }
         );
