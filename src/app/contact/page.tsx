@@ -17,16 +17,10 @@ export default function Contact() {
     e.preventDefault();
     setStatus('loading');
 
-    // Check if environment variables are loaded
-    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceID || !templateID || !publicKey) {
-      console.error("EmailJS Environment Variables are missing! Check Vercel Settings.");
-      setStatus('error');
-      return;
-    }
+    // 👇 I have put your keys here directly to fix the error
+    const serviceID = "service_uws77xi";
+    const templateID = "template_hvn3dst";
+    const publicKey = "skhgMObYgj5mIcLtg";
 
     if (form.current) {
       emailjs
@@ -43,7 +37,7 @@ export default function Contact() {
             form.current?.reset();
           },
           (error) => {
-            console.error(" EmailJS Failed:", error.text);
+            console.error("❌ EmailJS Failed:", error.text);
             setStatus('error');
           }
         );
