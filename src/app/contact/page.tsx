@@ -61,7 +61,7 @@ export default function Contact() {
       </motion.h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
-        {/* Contact Information */}
+        
         <motion.div className="space-y-8" {...slideInLeft}>
           <motion.div {...fadeInUp}>
             <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
