@@ -147,7 +147,7 @@ export default function Contact() {
             {/* Error Message */}
             {status === 'error' && (
               <motion.p className="text-red-500 text-center" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-                Failed to send message. Check console for "Attempting to send..."
+                Failed to send message. Check console for &quot;Attempting to send...&quot;
               </motion.p>
             )}
           </motion.form>
