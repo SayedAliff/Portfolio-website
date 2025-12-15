@@ -1,6 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
+:root {
   --color-primary: #007AFF;
   --color-secondary: #6B7280;
   --color-dark: #1F2937;
@@ -13,9 +15,6 @@
   --animation-fade-in: fadeIn 0.5s ease-in-out;
   --animation-slide-up: slideUp 0.5s ease-in-out;
 }
-
-
-@custom-variant dark (&:where(.dark, .dark *));
 
 a {
   transition: all 0.2s ease;
@@ -45,7 +44,7 @@ a {
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    opacity:  0;
   }
   to {
     opacity: 1;
@@ -64,6 +63,5 @@ a {
 }
 
 html {
-  /* This enables smooth scrolling when navigating using anchor links */
   scroll-behavior: smooth;
 }
